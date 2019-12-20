@@ -25,6 +25,8 @@ Route::get('/student_add', 'HomeController@student_add')->name('student_add');
 Route::get('/student_remove', 'HomeController@student_remove')->name('student_remove');
 Route::get('/teacher_add', 'HomeController@teacher_add')->name('teacher_add');
 Route::get('/teacher_remove', 'HomeController@teacher_remove')->name('teacher_remove');
+Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
+Route::get('/register_student', 'HomeController@register_student')->name('register_student');
 
 Route::get('/student_profile', 'StudentController@profile')->name('profile');
 

@@ -45,4 +45,12 @@ class HomeController extends Controller
     {
         return view('teacher_remove');
     }
+    public function assign_teacher()
+    {
+        return view('assign_teacher');
+    }
+    public function register_student()
+    {
+        return view('register_student');
+    }
 }
