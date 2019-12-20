@@ -10,7 +10,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Select Semester</label>
-          <select class="form-control select2" style="width: 150px">
+          <select class="form-control select2" style="width: 150px;">
             <option selected="selected">1</option>
             <option>2</option>
             <option>3</option>

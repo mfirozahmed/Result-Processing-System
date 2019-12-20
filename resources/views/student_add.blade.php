@@ -704,15 +704,18 @@
                 <h4>Add Students</h4>
                 <br>
                 <form style="width: 300px;">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Registration No. From</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend" style="width: 300px;">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Registration No From</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
-
-                    <div class="form-group">
-                        <div class="mt-5"></div>
-                        <label for="exampleInputPassword1">Registration No. To</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend" style="width: 300px;">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Registration No To</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -11,7 +11,8 @@
         <thead class="thead-dark">
           <tr>
             <th scope="row">Name</th>
-            <td>Mushtaq Shahriyar Rafee</td>
+            <!-- <td>Mushtaq Shahriyar Rafee</td> -->
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
           </tr>
         </thead>
 
@@ -51,7 +52,7 @@
       <!-- /.col -->
     </div>
     <br>
-    <h5><a href="{{route('profile_update')}}" class="button">Update Profile</a></h5>
+      <button type="submit" class="btn btn-primary">Submit</button>
     <!-- /.row -->
   </div>
 </div><!--  -->

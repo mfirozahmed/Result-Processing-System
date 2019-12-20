@@ -702,10 +702,12 @@
             <div class="container center_div">
                 <h4>Add A Teacher</h4>
                 <br>
-                <form style="width: 300px;">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Enter Username(To Add)</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <form style="width: 500px;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Enter Username</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
 
                     <br>

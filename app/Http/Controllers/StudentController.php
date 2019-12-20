@@ -14,4 +14,8 @@ class StudentController extends Controller
     {
         return view('student_profile');
     }
+    public function profile_1()
+    {
+        return view('student_profile_1');
+    }
 }

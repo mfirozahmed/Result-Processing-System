@@ -208,10 +208,12 @@
       <div class="container center_div">
         <h4>Remove A Student</h4>
         <br>
-        <form style="width: 300px;">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Enter Registration No.</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <form style="width: 400px;">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Enter Registration No</span>
+            </div>
+            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
 
           <br>
