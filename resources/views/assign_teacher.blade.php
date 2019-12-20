@@ -8,18 +8,20 @@
     <br>
     <div class="row">
       <div class="col-md-6">
-        <div class="form-group">
-          <label>Select Semester</label>
-          <select class="form-control select2" style="width: 150px;">
-            <option selected="selected">1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-          </select>
+        <div class="btn-group dropright">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Semester
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">1</a>
+            <a class="dropdown-item" href="#">2</a>
+            <a class="dropdown-item" href="#">3</a>
+            <a class="dropdown-item" href="#">4</a>
+            <a class="dropdown-item" href="#">5</a>
+            <a class="dropdown-item" href="#">6</a>
+            <a class="dropdown-item" href="#">7</a>
+            <a class="dropdown-item" href="#">8</a>
+          </div>
         </div>
 
         <div class="mt-5"></div>
