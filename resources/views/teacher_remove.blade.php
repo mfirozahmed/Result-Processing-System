@@ -700,6 +700,8 @@
             <br>
             <br>
             <div class="container center_div">
+                <h4>Remove A Teacher</h4>
+                <br>
                 <form style="width: 300px;">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Enter Username(To Remove)</label>
