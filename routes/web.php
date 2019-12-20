@@ -31,6 +31,9 @@ Route::get('/register_student', 'HomeController@register_student')->name('regist
 Route::get('/student_profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 
+Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
+Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teacher_profile_update');
+
 
 Route::get('/testhome', 'HomeController@test')->name('testhome');
 Route::get('/test', 'TestController@index')->name('test');
