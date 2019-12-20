@@ -35,6 +35,8 @@ Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profi
 Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teacher_profile_update');
 
 
+
+
 Route::get('/testhome', 'HomeController@test')->name('testhome');
 Route::get('/test', 'TestController@index')->name('test');
 Route::get('/about', 'TestController@about')->name('about');

@@ -7,51 +7,54 @@
     <h4>Profile</h4>
     <br>
     <div class="row">
-      <table class="table" style="width: 500px;">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Name</th>
-            <td>Mushtaq Shahriyar Rafee</td>
-          </tr>
-        </thead>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Name</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">Mushtaq Shahriyar Rafee</span>
+        </div>
+      </div>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Registration No</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">2016331098</span>
+        </div>
 
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Registration No</th>
-            <td>2016331098</td>
-          </tr>
-        </thead>
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Email</th>
-            <td>shahriyarrafi12345@gmail.com</td>
-          </tr>
-        </thead>
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Date of Birth</th>
-            <td>09 Oct 1999</td>
-          </tr>
-        </thead>
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Contact Number</th>
-            <td>01785391622</td>
-          </tr>
-        </thead>
-        <thead class="thead-dark">
-          <tr>
-            <th scope="row">Address</th>
-            <td>Thakurgaon</td>
-          </tr>
-        </thead>
+      </div>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Email</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">shahriyarrafi12345@gmail.com</span>
+        </div>
 
-      </table>
+      </div>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Date of Birth(DD/MM/YY)</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">09/10/1999</span>
+        </div>
+
+      </div>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Contact Number</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">01785391622</span>
+        </div>
+
+      </div>
+      <div class="input-group mb-3" style="width: 700px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Address</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">Thakurgaon</span>
+        </div>
+
+
+      </div>
+
 
       <!-- /.col -->
     </div>
     <br>
-    <h5><a href="{{route('profile_update')}}" class="button">Update Profile</a></h5>
+    <h5><a href="{{route('teacher_profile_update')}}" class="button">Update Profile</a></h5>
     <!-- /.row -->
   </div>
 </div><!--  -->
