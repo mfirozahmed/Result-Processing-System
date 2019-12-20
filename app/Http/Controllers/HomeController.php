@@ -23,34 +23,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin.home');
     }
     public function test()
     {
-        return view('testhome');
+        return view('admin.testhome');
     }
     public function student_add()
     {
-        return view('student_add');
+        return view('admin.student_add');
     }
     public function student_remove()
     {
-        return view('student_remove');
+        return view('admin.student_remove');
     }
     public function teacher_add()
     {
-        return view('teacher_add');
+        return view('admin.teacher_add');
     }
     public function teacher_remove()
     {
-        return view('teacher_remove');
+        return view('admin.teacher_remove');
     }
     public function assign_teacher()
     {
-        return view('assign_teacher');
+        return view('admin.assign_teacher');
     }
     public function register_student()
     {
-        return view('register_student');
+        return view('admin.register_student');
     }
 }

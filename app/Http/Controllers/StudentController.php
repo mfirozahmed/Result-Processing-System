@@ -8,14 +8,14 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return view('student_home');
+        return view('student.student_home');
     }
     public function profile()
     {
-        return view('student_profile');
+        return view('student.student_profile');
     }
     public function profile_1()
     {
-        return view('student_profile_1');
+        return view('student.student_profile_1');
     }
 }

@@ -8,7 +8,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return view('teacher_home');
+        return view('teacher.teacher_home');
     }
     
 }
