@@ -288,13 +288,13 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('assign_teacher')}}" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>Assign Teacher In Course</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('register_student')}}" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>Register Student In Course</p>
                             </a>
