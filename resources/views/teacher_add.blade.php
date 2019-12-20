@@ -700,6 +700,8 @@
             <br>
             <br>
             <div class="container center_div">
+                <h4>Add A Teacher</h4>
+                <br>
                 <form style="width: 300px;">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Enter Username(To Add)</label>
