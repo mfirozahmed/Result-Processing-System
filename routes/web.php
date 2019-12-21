@@ -36,6 +36,9 @@ Route::get('/student_profile_update', 'StudentController@profile_1')->name('prof
 
 Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
 Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teacher_profile_update');
+Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
+Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
+Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
 
 
 
