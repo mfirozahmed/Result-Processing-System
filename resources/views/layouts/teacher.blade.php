@@ -139,20 +139,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('view_student_profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
-                                <p>Student Profile</p>
+                                <p>View Student's Profile</p>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>Register Student In Course</p>
-                            </a>
-                        </li> -->
-
-
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();

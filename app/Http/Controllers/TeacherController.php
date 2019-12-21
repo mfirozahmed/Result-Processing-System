@@ -30,4 +30,8 @@ class TeacherController extends Controller
     {
         return view('teacher.my_courses_2');
     }
+    public function view_student_profile()
+    {
+        return view('teacher.view_student_profile');
+    }
 }
