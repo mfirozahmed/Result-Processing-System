@@ -54,7 +54,7 @@
       <!-- /.col -->
     </div>
     <br>
-    <h5><a href="{{route('teacher_profile_update')}}" class="button">Update Profile</a></h5>
+    <h5><a href="{{ route('student_profile_update') }}" class="button">Update Profile</a></h5>
     <!-- /.row -->
   </div>
 </div><!--  -->

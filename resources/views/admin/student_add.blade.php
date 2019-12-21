@@ -703,19 +703,20 @@
             <div class="container center_div">
                 <h4>Add Students</h4>
                 <br>
-                <form style="width: 300px;">
+                <form style="width: 300px;" action="{{ action('HomeController@student_store') }}" method="POST">
+                    @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 300px;">Registration No From</span>
                         </div>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="ref" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <br>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 300px;">Registration No To</span>
                         </div>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="ret" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Submit</button>

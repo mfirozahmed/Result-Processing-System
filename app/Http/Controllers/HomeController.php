@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class HomeController extends Controller
 {
@@ -32,6 +33,37 @@ class HomeController extends Controller
     public function student_add()
     {
         return view('admin.student_add');
+    }
+    public function student_store(Request $request)
+    {
+        $this->validate($request, [
+            'ref' => 'required',
+            'ret' => 'required'
+        ]);
+
+        $reg_nof = $request->input('ref');
+        $reg_not = $request->input('ret');
+
+        while ($reg_nof <= $reg_not) {
+            $student = new Student;
+            $student->reg = date('Y') * 1000 + $reg_nof;
+            $student->save();
+
+            if (($reg_nof[2] - '0') < 9)
+                $reg_nof[2] = (($reg_nof[2] - '0') + 1) + '0';
+            else {
+                $reg_nof[2] = '0';
+
+                if (($reg_nof[1] - '0') < 9)
+                    $reg_nof[1] = (($reg_nof[1] - '0') + 1) + '0';
+                else {
+                    $reg_nof[1] = '0';
+                    $reg_nof[0] = (($reg_nof[0] - '0') + 1) + '0';
+                }
+            }
+        }
+
+        return redirect('/home');
     }
     public function student_remove()
     {

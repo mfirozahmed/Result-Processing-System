@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,7 @@ class StudentController extends Controller
     {
         return view('student.student_profile');
     }
-    public function profile_1()
+    public function profile_1($id)
     {
         return view('student.student_profile_1');
     }
