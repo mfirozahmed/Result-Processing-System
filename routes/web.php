@@ -38,6 +38,7 @@ Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teac
 Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
 Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
 Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
+Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
 
 
 
