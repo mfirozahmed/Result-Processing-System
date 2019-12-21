@@ -41,6 +41,8 @@
               <td>CSE332</td>
               <td>Software Engineering & Design Patterns Lab</td>
               <td>1.5</td>
+
+              <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
             </tr>
           </tbody>
         </table>

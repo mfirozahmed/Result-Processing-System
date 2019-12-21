@@ -18,4 +18,16 @@ class TeacherController extends Controller
     {
         return view('teacher.teacher_profile_1');
     }
+    public function my_courses()
+    {
+        return view('teacher.my_courses');
+    }
+    public function my_courses_1()
+    {
+        return view('teacher.my_courses_1');
+    }
+    public function my_courses_2()
+    {
+        return view('teacher.my_courses_2');
+    }
 }
