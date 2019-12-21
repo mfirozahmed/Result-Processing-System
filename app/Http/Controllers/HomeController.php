@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Student;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -46,8 +48,15 @@ class HomeController extends Controller
 
         while ($reg_nof <= $reg_not) {
             $student = new Student;
-            $student->reg = date('Y') * 1000 + $reg_nof;
+            $student->reg = date('Y') * 1000000 + 331000 + $reg_nof;
             $student->save();
+
+
+            $user = new User;
+            $user->name = date('Y') * 1000000 + 331000 + $reg_nof;
+            $user->email = "";
+            $user->password = Hash::make(date('Y') * 1000000 + 331000 + $reg_nof);
+            $user->save();
 
             if (($reg_nof[2] - '0') < 9)
                 $reg_nof[2] = (($reg_nof[2] - '0') + 1) + '0';

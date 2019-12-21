@@ -22,7 +22,6 @@ Route::get('/student_home', 'StudentController@index')->name('student_home');
 Route::get('/teacher_home', 'TeacherController@index')->name('teacher_home');
 
 Route::get('/student_add', 'HomeController@student_add')->name('student_add');
-
 Route::post('/student_add', 'HomeController@student_store');
 
 Route::get('/student_remove', 'HomeController@student_remove')->name('student_remove');

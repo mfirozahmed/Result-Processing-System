@@ -15,7 +15,7 @@ class StudentController extends Controller
     {
         return view('student.student_profile');
     }
-    public function profile_1($id)
+    public function profile_1()
     {
         return view('student.student_profile_1');
     }
