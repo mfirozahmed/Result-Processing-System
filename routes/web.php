@@ -52,12 +52,17 @@ Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name(
 Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
 Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
 Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teacher_profile_update');
+Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
 Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
 Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
 Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
+
 Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
+Route::post('/view_student_profile', 'TeacherController@get_student_profile')->name('student_profile.submit');
+
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
 Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
+
 
 
 
