@@ -57,6 +57,7 @@ Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_
 Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
 Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
+Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
 
 
 

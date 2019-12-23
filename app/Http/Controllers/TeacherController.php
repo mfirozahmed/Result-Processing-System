@@ -44,4 +44,8 @@ class TeacherController extends Controller
     {
         return view('teacher.show_student_profile');
     }
+    public function profile_update_show()
+    {
+        return view('teacher.teacher_profile_update_show');
+    }
 }
