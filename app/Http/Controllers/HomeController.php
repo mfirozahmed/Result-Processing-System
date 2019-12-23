@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Student;
-use App\User;
 
 class HomeController extends Controller
 {
@@ -28,10 +27,6 @@ class HomeController extends Controller
     {
         return view('admin.home');
     }
-    public function test()
-    {
-        return view('admin.testhome');
-    }
     public function student_add()
     {
         return view('admin.student_add');
@@ -48,31 +43,26 @@ class HomeController extends Controller
 
         while ($reg_nof <= $reg_not) {
             $student = new Student;
-            $student->reg = date('Y') * 1000000 + 331000 + $reg_nof;
+            $student->username = $reg_nof;
+            $student->password = Hash::make($reg_nof);
             $student->save();
 
 
-            $user = new User;
-            $user->name = date('Y') * 1000000 + 331000 + $reg_nof;
-            $user->email = "";
-            $user->password = Hash::make(date('Y') * 1000000 + 331000 + $reg_nof);
-            $user->save();
-
-            if (($reg_nof[2] - '0') < 9)
-                $reg_nof[2] = (($reg_nof[2] - '0') + 1) + '0';
+            if (($reg_nof[9] - '0') < 9)
+                $reg_nof[9] = (($reg_nof[9] - '0') + 1) + '0';
             else {
-                $reg_nof[2] = '0';
+                $reg_nof[9] = '0';
 
-                if (($reg_nof[1] - '0') < 9)
-                    $reg_nof[1] = (($reg_nof[1] - '0') + 1) + '0';
+                if (($reg_nof[8] - '0') < 9)
+                    $reg_nof[8] = (($reg_nof[8] - '0') + 1) + '0';
                 else {
-                    $reg_nof[1] = '0';
-                    $reg_nof[0] = (($reg_nof[0] - '0') + 1) + '0';
+                    $reg_nof[8] = '0';
+                    $reg_nof[7] = (($reg_nof[7] - '0') + 1) + '0';
                 }
             }
         }
 
-        return redirect('/home');
+        return redirect()->intended(route('home'));
     }
     public function student_remove()
     {
