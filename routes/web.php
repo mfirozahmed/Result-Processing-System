@@ -40,6 +40,7 @@ Route::get('/student/login', 'Auth\StudentLoginController@showLoginForm')->name(
 Route::post('/student/login', 'Auth\StudentLoginController@login')->name('student.login.submit');
 Route::get('/student_profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
+Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
 
 
 

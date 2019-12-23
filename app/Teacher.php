@@ -12,7 +12,6 @@ class Teacher extends Authenticatable
 
     protected $guard = 'teacher';
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -42,4 +41,5 @@ class Teacher extends Authenticatable
 
 
     protected $primaryKey = 'username';
+    public $incrementing = false;
 }
