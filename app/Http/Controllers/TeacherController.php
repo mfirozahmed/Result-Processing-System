@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Teacher;
+use App\Student;
 
 class TeacherController extends Controller
 {
@@ -60,5 +61,9 @@ class TeacherController extends Controller
     public function show_student_profile()
     {
         return view('teacher.show_student_profile');
+    }
+    public function get_student_profile(Request $request)
+    {
+
     }
 }

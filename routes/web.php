@@ -56,8 +56,12 @@ Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name(
 Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
 Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
 Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
+
 Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
+Route::post('/view_student_profile', 'TeacherController@get_student_profile')->name('student_profile.submit');
+
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
+
 
 
 
