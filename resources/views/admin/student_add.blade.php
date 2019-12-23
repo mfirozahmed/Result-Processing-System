@@ -116,7 +116,7 @@
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="" class="d-block">{{ Auth::user()->username }}</a>
                     </div>
                 </div>
 
@@ -213,7 +213,7 @@
             <div class="container center_div">
                 <h4>Add Students</h4>
                 <br>
-                <form style="width: 300px;" action="{{ action('HomeController@student_store') }}" method="POST">
+                <form style="width: 300px;"  method="POST" action="{{ route('student.add.submit') }}">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

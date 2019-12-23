@@ -38,5 +38,5 @@ class User extends Authenticatable
     ];
 
 
-    protected $primaryKey = 'username';
+    public $primaryKey = 'username';
 }

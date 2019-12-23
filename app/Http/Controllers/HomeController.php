@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Student;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user()->username;
+        //return $user;
         return view('admin.home');
     }
     public function student_add()
@@ -67,6 +71,17 @@ class HomeController extends Controller
     public function student_remove()
     {
         return view('admin.student_remove');
+    }
+    public function student_delete(Request $request)
+    {
+        $this->validate($request, [
+            'reg' => 'required'
+        ]);
+        
+        $student = Student::find($request->input('reg'));
+        $student->delete();
+
+        return redirect()->intended(route('home'));
     }
     public function teacher_add()
     {

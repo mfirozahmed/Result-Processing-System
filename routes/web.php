@@ -20,11 +20,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/student_add', 'HomeController@student_add')->name('student_add');
-Route::post('/student_add', 'HomeController@student_store');
+Route::post('/student_add', 'HomeController@student_store')->name('student.add.submit');
 
 Route::get('/student_remove', 'HomeController@student_remove')->name('student_remove');
+Route::post('/student_remove', 'HomeController@student_delete')->name('student.remove.submit');
+
 Route::get('/teacher_add', 'HomeController@teacher_add')->name('teacher_add');
+
 Route::get('/teacher_remove', 'HomeController@teacher_remove')->name('teacher_remove');
+
 Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
 Route::get('/register_student', 'HomeController@register_student')->name('register_student');
 

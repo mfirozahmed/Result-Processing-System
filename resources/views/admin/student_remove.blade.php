@@ -116,7 +116,7 @@
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block">{{ Auth::user()->username }}</a>
                     </div>
                 </div>
 
@@ -213,12 +213,13 @@
             <div class="container center_div">
                 <h4>Remove A Student</h4>
                 <br>
-                <form style="width: 400px;">
+                <form style="width: 400px;"  method="POST" action="{{ route('student.remove.submit') }}">
+                    @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Enter Registration No</span>
                         </div>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="reg" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
 
                     <br>
