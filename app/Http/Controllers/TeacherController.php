@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Teacher;
 
 class TeacherController extends Controller
 {
@@ -18,11 +19,27 @@ class TeacherController extends Controller
     }
     public function profile()
     {
-        return view('teacher.teacher_profile');
+        $teacher = Auth::user();
+        return view('teacher.teacher_profile')->with('teacher', $teacher);
     }
     public function profile_1()
     {
-        return view('teacher.teacher_profile_1');
+        $teacher = Auth::user();
+        return view('teacher.teacher_profile_1')->with('teacher', $teacher);
+    }
+    public function profile_store(Request $request)
+    {
+        $id = Auth::user()->username;
+
+        $teacher = Teacher::find($id);
+        $teacher->name = $request->input('name');
+        $teacher->email = $request->input('email');
+        $teacher->des = $request->input('des');
+        $teacher->phone = $request->input('phone');;
+
+        $teacher->save();
+        
+        return view('teacher.teacher_profile')->with('teacher', $teacher);
     }
     public function my_courses()
     {

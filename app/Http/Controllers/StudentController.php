@@ -32,7 +32,14 @@ class StudentController extends Controller
         $id = Auth::user()->username;
 
         $student = Student::find($id);
-        return $student;
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
+        $student->dob = $request->input('dob');
+        $student->phone = $request->input('phone');
+        $student->address = $request->input('address');
+
+        $student->save();
+        
         return view('student.student_profile')->with('student', $student);
     }
 }
