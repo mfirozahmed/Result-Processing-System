@@ -40,7 +40,7 @@ class TeacherController extends Controller
 
         $teacher->save();
         
-        return view('teacher.teacher_profile')->with('teacher', $teacher);
+        return view('teacher.teacher_profile_update_show')->with('teacher', $teacher);
     }
     public function my_courses()
     {

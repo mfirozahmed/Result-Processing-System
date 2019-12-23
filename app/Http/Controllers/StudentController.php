@@ -27,6 +27,11 @@ class StudentController extends Controller
         $student = Auth::user();
         return view('student.student_profile_1')->with('student', $student);
     }
+    public function profile_update_show()
+    {
+        $student = Auth::user();
+        return view('student.student_profile_update_show')->with('student', $student);
+    }
     public function profile_store(Request $request)
     {
         $id = Auth::user()->username;
@@ -40,6 +45,6 @@ class StudentController extends Controller
 
         $student->save();
         
-        return view('student.student_profile')->with('student', $student);
+        return view('student.student_profile_update_show')->with('student', $student);
     }
 }
