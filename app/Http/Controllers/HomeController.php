@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Student;
-use App\User;
+use App\Teacher;
 
 class HomeController extends Controller
 {
@@ -27,10 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        //return $user;
         return view('admin.home');
     }
+
     public function student_add()
     {
         return view('admin.student_add');
@@ -68,6 +67,7 @@ class HomeController extends Controller
 
         return redirect()->intended(route('home'));
     }
+
     public function student_remove()
     {
         return view('admin.student_remove');
@@ -83,14 +83,42 @@ class HomeController extends Controller
 
         return redirect()->intended(route('home'));
     }
+
     public function teacher_add()
     {
         return view('admin.teacher_add');
     }
+    public function teacher_store(Request $request)
+    {
+        $this->validate($request, [
+            'user' => 'required',
+        ]);
+
+        $teacher = new Teacher;
+        $teacher->username = $request->input('user');
+        $teacher->password = Hash::make('12345678');
+        $teacher->save();
+
+        return redirect()->intended(route('home'));
+
+    }
+
     public function teacher_remove()
     {
         return view('admin.teacher_remove');
     }
+    public function teacher_delete(Request $request)
+    {
+        $this->validate($request, [
+            'user' => 'required'
+        ]);
+        
+        $teacher = Teacher::find($request->input('user'));
+        $teacher->delete();
+
+        return redirect()->intended(route('home'));
+    }
+
     public function assign_teacher()
     {
         return view('admin.assign_teacher');

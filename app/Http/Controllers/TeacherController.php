@@ -18,16 +18,24 @@ class TeacherController extends Controller
     {
         return view('teacher.teacher_home');
     }
+
     public function profile()
     {
         $teacher = Auth::user();
         return view('teacher.teacher_profile')->with('teacher', $teacher);
     }
-    public function profile_1()
+
+    public function profile_update()
     {
         $teacher = Auth::user();
-        return view('teacher.teacher_profile_1')->with('teacher', $teacher);
+        return view('teacher.teacher_profile_update')->with('teacher', $teacher);
     }
+
+    public function profile_update_show()
+    {
+        return view('teacher.teacher_profile_update_show');
+    }
+
     public function profile_store(Request $request)
     {
         $id = Auth::user()->username;
@@ -42,40 +50,31 @@ class TeacherController extends Controller
         
         return view('teacher.teacher_profile_update_show')->with('teacher', $teacher);
     }
+
     public function my_courses()
     {
         return view('teacher.my_courses');
     }
+
     public function my_courses_1()
     {
         return view('teacher.my_courses_1');
     }
+
     public function my_courses_2()
     {
         return view('teacher.my_courses_2');
     }
+
     public function view_student_profile()
     {
         return view('teacher.view_student_profile');
     }
+    
     public function show_student_profile(Request $request)
     {
         $reg = $request->input('reg');
         $student = Student::find($reg);
         return view('teacher.show_student_profile')->with('student', $student);
-    }
-
-    /*public function student_search(Request $request)
-    {
-        $reg = $request->input('reg');
-        //$x = $this->show_student_profile($reg);
-        $student = Student::find($reg);
-        return redirect()->route('show_student_profile')->with('student', $student);
-        //return view('teacher.show_student_profile')->with('student', $student);
-        //return redirect()->intended(route('show_student_profile'))->with('student', $student);
-    }*/
-    public function profile_update_show()
-    {
-        return view('teacher.teacher_profile_update_show');
     }
 }

@@ -26,8 +26,10 @@ Route::get('/student_remove', 'HomeController@student_remove')->name('student_re
 Route::post('/student_remove', 'HomeController@student_delete')->name('student.remove.submit');
 
 Route::get('/teacher_add', 'HomeController@teacher_add')->name('teacher_add');
+Route::post('/teacher_add', 'HomeController@teacher_store')->name('teacher.add.submit');
 
 Route::get('/teacher_remove', 'HomeController@teacher_remove')->name('teacher_remove');
+Route::post('/teacher_remove', 'HomeController@teacher_delete')->name('teacher.remove.submit');
 
 Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
 Route::get('/register_student', 'HomeController@register_student')->name('register_student');
@@ -52,14 +54,13 @@ Route::get('/teacher_home', 'TeacherController@index')->name('teacher_home');
 Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
 Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
 Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
-Route::get('/teacher_profile_update', 'TeacherController@profile_1')->name('teacher_profile_update');
+Route::get('/teacher_profile_update', 'TeacherController@profile_update')->name('teacher_profile_update');
 Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
 Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
 Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
 Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
 
 Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
-//Route::post('/view_student_profile', 'TeacherController@student_search')->name('student.search');
 
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
 Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');

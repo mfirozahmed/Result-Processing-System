@@ -211,12 +211,13 @@
             <div class="container center_div">
                 <h4>Add A Teacher</h4>
                 <br>
-                <form style="width: 500px;">
+                <form style="width: 500px;" method="POST" action="{{ route('teacher.add.submit') }}">
+                    @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Enter Username</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name='user' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
 
                     <br>
