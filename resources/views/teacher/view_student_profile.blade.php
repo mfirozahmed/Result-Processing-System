@@ -6,7 +6,8 @@
   <div class="card-body">
     <h4>Search For A Student</h4>
     <br>
-    <form  method="POST" action="{{ route('student.search') }}">
+  <form  method="GET" action="{{ route('show_student_profile')}}">
+    @csrf
       <div class="row">
         <div class="input-group mb-3" style="width: 400px;">
           <div class="input-group-prepend">

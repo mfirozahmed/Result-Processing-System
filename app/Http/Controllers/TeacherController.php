@@ -58,24 +58,24 @@ class TeacherController extends Controller
     {
         return view('teacher.view_student_profile');
     }
-    public function student_search()
+    public function show_student_profile(Request $request)
     {
-        return 1;
-        //return view('teacher.view_student_profile');
-    }
-    public function show_student_profile()
-    {
-        return view('teacher.show_student_profile');
+        $reg = $request->input('reg');
+        $student = Student::find($reg);
+        return view('teacher.show_student_profile')->with('student', $student);
     }
 
+    /*public function student_search(Request $request)
+    {
+        $reg = $request->input('reg');
+        //$x = $this->show_student_profile($reg);
+        $student = Student::find($reg);
+        return redirect()->route('show_student_profile')->with('student', $student);
+        //return view('teacher.show_student_profile')->with('student', $student);
+        //return redirect()->intended(route('show_student_profile'))->with('student', $student);
+    }*/
     public function profile_update_show()
     {
         return view('teacher.teacher_profile_update_show');
-    }
-    public function get_student_profile(Request $request)
-    {
-        $r = $request->input('reg');
-        return 1;
-
     }
 }
