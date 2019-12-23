@@ -3,6 +3,7 @@
 @section('content')
 <br>
 <div class="container center_div">
+  @yield('alert')
   <div class="card-body">
     <h4>Profile</h4>
     <br>
