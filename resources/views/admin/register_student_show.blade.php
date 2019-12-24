@@ -31,12 +31,12 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr>
+            <tr>
               <th scope="row">1</th>
-              <td>CSE332</td>
-              <td>Software Engineering & Design Patterns Lab</td>
-              <td>1.5</td>
-            </tr> -->
+              <td>2016331098</td>
+              <td><input type="checkbox"></td>
+              
+            </tr>
           </tbody>
         </table>
 

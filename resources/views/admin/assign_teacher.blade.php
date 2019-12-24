@@ -30,18 +30,17 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Course Code</th>
-              <th scope="col">Course Title</th>
-              <th scope="col">Credit</th>
+              <th scope="col">Username</th>
+              <th scope="col">Name</th>
+              <th scope="col">Option</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
+              <!-- <th scope="row">1</th>
               <td>CSE332</td>
               <td>Software Engineering & Design Patterns Lab</td>
-              <td>1.5</td>
-
+              <td>1.5</td> -->
               <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
             </tr>
           </tbody>

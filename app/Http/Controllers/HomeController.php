@@ -123,8 +123,20 @@ class HomeController extends Controller
     {
         return view('admin.assign_teacher');
     }
+
     public function register_student()
     {
         return view('admin.register_student');
     }
+
+    public function register_student_show()
+    {
+        return view('admin.register_student_show');
+    }
+
+    public function assign_teacher_show()
+    {
+        return view('admin.assign_teacher_show');
+    }
+
 }

@@ -34,6 +34,9 @@ Route::post('/teacher_remove', 'HomeController@teacher_delete')->name('teacher.r
 Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
 Route::get('/register_student', 'HomeController@register_student')->name('register_student');
 
+Route::get('/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
+Route::get('/assign_teacher_show', 'HomeController@assign_teacher_show')->name('assign_teacher_show');
+
 
 
 
