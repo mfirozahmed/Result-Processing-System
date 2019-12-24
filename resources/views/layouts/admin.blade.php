@@ -126,7 +126,8 @@
                         with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Students
                                     <i class="right fas fa-angle-left"></i>
@@ -152,7 +153,7 @@
 
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>
                                     Teachers
                                     <i class="right fas fa-angle-left"></i>
