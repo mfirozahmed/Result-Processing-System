@@ -41,4 +41,9 @@ class Student extends Authenticatable
 
 
     protected $primaryKey = 'username';
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course');
+    }
 }

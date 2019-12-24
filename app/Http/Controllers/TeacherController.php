@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Teacher;
 use App\Student;
+use App\Course;
 
 class TeacherController extends Controller
 {
@@ -53,7 +54,11 @@ class TeacherController extends Controller
 
     public function my_courses()
     {
-        return view('teacher.my_courses');
+        $id = Auth::User()->username;
+        $username = Teacher::find($id);
+        $all_courses = $username->courses;
+
+        return view('teacher.my_courses')->with('all_courses', $all_courses);
     }
 
     public function my_courses_1()

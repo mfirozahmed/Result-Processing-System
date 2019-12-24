@@ -26,14 +26,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($all_courses as $course)
+            
                         <tr style="cursor:pointer;"  class="hello" onclick="window.location='{{route('my_courses_1')}}';">
-                            <th scope="row">1</th>
-                            <td>CSE332</td>
-                            <td>Software Engineering & Design Patterns Lab</td>
-                            <td>1.5</td>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $course->code }}</td>
+                            <td>{{ $course->title }}</td>
+                            <td>{{ $course->credit }}</td>
 
                             <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
