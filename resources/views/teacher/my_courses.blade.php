@@ -27,11 +27,10 @@
                     </thead>
                     <tbody>
                         @foreach ($all_courses as $course)
-            
-                        <tr style="cursor:pointer;"  class="hello" onclick="window.location='{{route('my_courses_1')}}';">
+                        <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $course->code }}</td>
-                            <td>{{ $course->title }}</td>
+                            <td><a href="/my_courses/{{$course->code}}/marks">{{ $course->code }}</a></td>
+                            <td><a href="/my_courses/{{$course->code}}/marks">{{ $course->title }}</a></td>
                             <td>{{ $course->credit }}</td>
 
                             <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->

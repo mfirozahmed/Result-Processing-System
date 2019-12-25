@@ -60,8 +60,9 @@ Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profi
 Route::get('/teacher_profile_update', 'TeacherController@profile_update')->name('teacher_profile_update');
 Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
 Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
-Route::get('/my_courses_1', 'TeacherController@my_courses_1')->name('my_courses_1');
-Route::get('/my_courses_2', 'TeacherController@my_courses_2')->name('my_courses_2');
+
+Route::get('/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks');
+Route::post('/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks_submit');
 
 Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
 
