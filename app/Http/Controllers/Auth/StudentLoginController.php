@@ -10,7 +10,7 @@ class StudentLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:student');
+        $this->middleware('guest:student')->except('logout');
     }
     
     public function showLoginForm()
@@ -38,5 +38,11 @@ class StudentLoginController extends Controller
 
         return redirect()->back()->withInput($request->only('username', 'remember'));
 
+    }
+
+    public function logout()
+    {
+        Auth::guard('student')->logout();
+        return redirect('/');
     }
 }

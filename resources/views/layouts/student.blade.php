@@ -132,11 +132,18 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Result</p>
                             </a>
-
                         </li>
-                        <li class="nav-header">LABELS</li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a href="{{route('student.logout')}}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
+                        <!--li class="nav-header">LABELS</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('student.logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="nav-icon far fa-circle text-danger"></i>
                                 {{ __('Logout') }}
                             </a>
@@ -144,7 +151,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        </li>
+                        </li-->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

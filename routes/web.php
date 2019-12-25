@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin/logout', 'Auth\LoginController@adminLogout')->name('admin.logout');
 
 Route::get('/student_add', 'HomeController@student_add')->name('student_add');
 Route::post('/student_add', 'HomeController@student_store')->name('student.add.submit');
@@ -43,6 +44,9 @@ Route::get('/assign_teacher_show', 'HomeController@assign_teacher_show')->name('
 Route::get('/student_home', 'StudentController@index')->name('student_home');
 Route::get('/student/login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');
 Route::post('/student/login', 'Auth\StudentLoginController@login')->name('student.login.submit');
+
+Route::get('/student/logout', 'Auth\StudentLoginController@logout')->name('student.logout');
+
 Route::get('/student_profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
@@ -56,6 +60,9 @@ Route::post('/student_profile_update_show', 'StudentController@profile_update_sh
 Route::get('/teacher_home', 'TeacherController@index')->name('teacher_home');
 Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
 Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
+
+Route::get('/teacher/logout', 'Auth\TeacherLoginController@logout')->name('teacher.logout');
+
 Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
 Route::get('/teacher_profile_update', 'TeacherController@profile_update')->name('teacher_profile_update');
 Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
