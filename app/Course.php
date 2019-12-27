@@ -12,11 +12,11 @@ class Course extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'course_student', 'code', 'username')->withPivot('tt1', 'tt2', 'tt3', 'final', 'att');
+        return $this->belongsToMany(Student::class, 'course_student', 'code', 'username')->withPivot('tt1', 'tt2', 'tt3', 'final', 'att', 'cgpa')->using(Course_Student::class);
     }
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class, 'course_teacher', 'code', 'username')->withPivot('year');
+        return $this->belongsToMany(Teacher::class, 'course_teacher', 'code', 'username')->withPivot('year')->using(Course_Teacher::class);
     }
 }

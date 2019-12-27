@@ -27,10 +27,10 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$student->username}}</td>
-                                <td><input class="form-control input-sm" id="inputsm" type="number" name="tt1[{{$student->username}}]" value="{{$student->pivot->tt1}}"></td>
-                                <td><input class="form-control input-sm" id="inputsm" type="number" name="tt2[{{$student->username}}]" value="{{$student->pivot->tt2}}"></td>
-                                <td><input class="form-control input-sm" id="inputsm" type="number" name="att[{{$student->username}}]" value="{{$student->pivot->att}}"></td>
-                                <td><input class="form-control input-sm" id="inputsm" type="number" name="final[{{$student->username}}]" value="{{$student->pivot->final}}"></td>
+                                <td><input class="form-control input-sm" id="inputsm" type="number" name="tt1[]" value="{{$student->pivot->tt1}}"></td>
+                                <td><input class="form-control input-sm" id="inputsm" type="number" name="tt2[]" value="{{$student->pivot->tt2}}"></td>
+                                <td><input class="form-control input-sm" id="inputsm" type="number" name="att[]" value="{{$student->pivot->att}}"></td>
+                                <td><input class="form-control input-sm" id="inputsm" type="number" name="final[]" value="{{$student->pivot->final}}"></td>
                                 <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
@@ -44,7 +44,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>        
         @else
-            <h4> No student avaiable. </h4>
+            <h5> No student avaiable. </h5>
         @endif
         <!-- /.row -->
     </div>

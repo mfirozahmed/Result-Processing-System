@@ -414,6 +414,8 @@ class ComposerStaticInite08f6c36f21e628666ea2617d3fd4c1d
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
+        'App\\Course_Student' => __DIR__ . '/../..' . '/app/Course_Student.php',
+        'App\\Course_Teacher' => __DIR__ . '/../..' . '/app/Course_Teacher.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -444,7 +446,6 @@ class ComposerStaticInite08f6c36f21e628666ea2617d3fd4c1d
         'App\\Student' => __DIR__ . '/../..' . '/app/Student.php',
         'App\\Teacher' => __DIR__ . '/../..' . '/app/Teacher.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\course_teacher' => __DIR__ . '/../..' . '/app/course_teacher.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
         'Carbon\\CarbonInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterface.php',

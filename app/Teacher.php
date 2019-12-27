@@ -47,6 +47,6 @@ class Teacher extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'course_teacher', 'username', 'code')->withPivot('year');
+        return $this->belongsToMany(Course::class, 'course_teacher', 'username', 'code')->withPivot('year')->using(Course_Teacher::class);
     }
 }

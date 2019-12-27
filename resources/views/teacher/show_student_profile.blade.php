@@ -4,8 +4,9 @@
 <br>
 <div class="container center_div">
     <div class="card-body">
-        <h4>Student Profile "{{ $student->username }}"</h4>
+        <h4>Student Profile</h4>
         <br>
+        @if ($student != null)
         <div class="row">
             <div class="input-group mb-3" style="width: 700px;">
                 <div class="input-group-prepend">
@@ -48,10 +49,14 @@
             </div>
 
         </div>
+        @else
+            <h5> No profile avaiable. </h5>
+        @endif
     </div>
     <div class="card-body">
         <h4>Courses & Results</h4>
         <br>
+        @if (count($courses)>0)
         <div class="row">
             <div class="col-md-6">
                 <table class="table">
@@ -65,22 +70,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="cursor:pointer;" class="hello" onclick="window.location='{{route('my_courses_1')}}';">
-                            <th scope="row">1</th>
-                            <td>CSE332</td>
-                            <td>Software Engineering & Design Patterns Lab</td>
-                            <td>1.5</td>
-                            <td>GPA</td>
-
-                            <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
+                        @foreach ($courses as $course)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{$course->code}}</td>
+                            <td>{{$course->title}}</td>
+                            <td>{{$course->credit}}</td>
+                            <td>@if ($course->pivot->cgpa != null)
+                                    {{$course->pivot->cgpa}}
+                                @else
+                                    F
+                                @endif
+                            </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
-
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
+        @else
+            <h5> No result avaiable. </h5>
+        @endif
     </div>
-</div><!--  -->
+</div>
 @endsection
