@@ -11,7 +11,7 @@
         <form class="col-md-2">
           <h6>Select Semester</h6>
           <select class="form-control select">
-            <option>Select</option>
+            <option selected disabled>--Select--</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>

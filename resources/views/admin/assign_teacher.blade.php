@@ -8,6 +8,18 @@
 </style>
 @endsection('style')
 
+@section('value')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(function(){
+    $("#valueFind").change(function(){
+      var displayValue = $("#valueFind option:selected").text();
+      $("#text").val(displayValue);
+    })
+  })
+</script>
+@endsection('value')
+
 @section('content')
 <br>
 <div class="container center_div">
@@ -18,8 +30,8 @@
       <div class="col-md-9">
         <form class="col-md-2">
         <h6>Select Semester</h6>
-          <select class="form-control select">
-            <option>Select</option>
+          <select class="form-control select" id="valueFind">
+            <option selected disabled>--Select--</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -30,6 +42,8 @@
             <option>8</option>
           </select>
         </form>
+
+        <input type="text" id="text"/>
 
         <div class="mt-5"></div>
 
