@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-9">
         <form class="col-md-2">
-          <label>Select Semester</label>
+          <h6>Select Semester</h6>
           <select class="form-control select">
             <option>Select</option>
             <option>1</option>

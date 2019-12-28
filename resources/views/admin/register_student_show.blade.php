@@ -8,8 +8,8 @@
     <br>
     <div class="row">
       <div class="col-md-6">
-        <!-- <form class="col-md-4">
-          <label>Select Year</label>
+        <form class="col-md-4">
+          <h6>Select Year</h6>
           <select class="form-control select">
             <option>Select</option>
             <option>2015</option>
@@ -18,9 +18,9 @@
             <option>2018</option>
             <option>2019</option>
           </select>
-        </form> -->
+        </form>
 
-        <!-- <div class="mt-5"></div> -->
+        <div class="mt-5"></div>
 
         <table class="table">
           <thead class="thead-dark">
