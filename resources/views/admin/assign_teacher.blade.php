@@ -3,9 +3,10 @@
 @section('value')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  $(function(){
-    $("#valueFind").change(function(){
+  $(function() {
+    $("#valueFind").change(function() {
       var displayValue = $("#valueFind option:selected").text();
+
       $("#text").val(displayValue);
     })
   })
@@ -21,7 +22,7 @@
     <div class="row">
       <div class="col-md-9">
         <form class="col-md-2">
-        <h6>Select Semester</h6>
+          <h6>Select Semester</h6>
           <select class="form-control select" id="valueFind">
             <option selected disabled>--Select--</option>
             <option>1</option>
@@ -35,8 +36,12 @@
           </select>
         </form>
 
-        <input type="text" id="text"/>
+        <input type="text" id="text" />
+        <br>
 
+        
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
         <div class="mt-5"></div>
 
         <table class="table">
@@ -73,8 +78,7 @@
       </div>
       <!-- /.col -->
     </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
     <!-- /.row -->
   </div>
 </div><!--  -->
