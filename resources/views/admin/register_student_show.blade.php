@@ -27,7 +27,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Registration No</th>
-              <th scope="col">Option</th>
+              <th scope="col">Select</th>
             </tr>
           </thead>
           <tbody>
