@@ -4,11 +4,11 @@
 <br>
 <div class="container center_div">
     <div class="card-body">
-        <h4>Assign Teacher In Course</h4>
+        <h4>Assign Teacher(s) In Course "CSE250"</h4>
         <br>
         <div class="row">
             <div class="col-md-6">
-                <div class="btn-group dropright">
+                <!-- <div class="btn-group dropright">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select Semester
                     </button>
@@ -22,9 +22,9 @@
                         <a class="dropdown-item" href="#">7</a>
                         <a class="dropdown-item" href="#">8</a>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="mt-5"></div>
+                <!-- <div class="mt-5"></div> -->
 
                 <table class="table">
                     <thead class="thead-dark">
@@ -45,6 +45,16 @@
                             <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                         </tr>
                     </tbody>
+                    <!-- <tbody>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>rafee</td>
+                            <td>Mushtaq Shahriyar Rafee</td>
+                            <td><input type="checkbox"></td>
+
+                            <input class="form-control input-sm" id="inputsm" type="text">
+                        </tr>
+                    </tbody> -->
                 </table>
 
             </div>
