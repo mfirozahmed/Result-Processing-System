@@ -134,6 +134,11 @@ class HomeController extends Controller
         return view('admin.register_student_show');
     }
 
+    public function assign_teacher_course()
+    {
+        return view('admin.assign_teacher_course');
+    }
+
     public function assign_teacher_show()
     {
         return view('admin.assign_teacher_show');

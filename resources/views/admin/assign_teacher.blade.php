@@ -20,59 +20,55 @@
     <h4>Assign Teacher In Course</h4>
     <br>
     <div class="row">
-      <div class="col-md-9">
-        <form class="col-md-2">
-          <h6>Select Semester</h6>
-          <select class="form-control select" id="valueFind">
-            <option selected disabled>--Select--</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-          </select>
-        </form>
-        <div class="mt-5"></div>
+      <div class="col-md-6">
 
-        <table class="table">
+        <!-- <div class="mt-5"></div> -->
+        <br>
+        <h5>First Year</h5>
+        <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Course Code</th>
-              <th scope="col">Course Title</th>
-              <th scope="col">Credit</th>
-              <th scope="col">Select</th>
+              <th scope="col">First Semester</th>
+              <th scope="col">Second Semester</th>
             </tr>
           </thead>
-          <tbody>
+        </table>
+
+        <h5>Second Year</h5>
+        <table class="table" style="width: 400px;">
+          <thead class="thead-dark">
             <tr>
-              <th scope="row">1</th>
-              <td>CSE332</td>
-              <td>Software Engineering & Design Patterns Lab</td>
-              <td>1.5</td>
-              <td><input type="radio" name="demo" value="one" id="radio-one" class="form-radio"></td>
-              <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
+              <th scope="col">First Semester</th>
+              <th scope="col">Second Semester</th>
             </tr>
-          </tbody>
-          <!-- <tbody>
+          </thead>
+        </table>
+
+        <h5>Third Year</h5>
+        <table class="table" style="width: 400px;">
+          <thead class="thead-dark">
             <tr>
-              <th scope="row">2</th>
-              <td>CSE332</td>
-              <td>Software Engineering & Design Patterns Lab</td>
-              <td>1.5</td>
-              <td><input type="radio" name="demo" value="one" id="radio-one" class="form-radio"></td>
+              <th scope="col">First Semester</th>
+              <th scope="col">Second Semester</th>
             </tr>
-          </tbody> -->
+          </thead>
+        </table>
+
+        <h5>Fourth Year</h5>
+        <table class="table" style="width: 400px;">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">First Semester</th>
+              <th scope="col">Second Semester</th>
+            </tr>
+          </thead>
         </table>
 
       </div>
       <!-- /.col -->
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
     <!-- /.row -->
   </div>
 </div>

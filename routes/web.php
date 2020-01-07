@@ -36,6 +36,7 @@ Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_tea
 Route::get('/register_student', 'HomeController@register_student')->name('register_student');
 
 Route::get('/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
+Route::get('/assign_teacher_course', 'HomeController@assign_teacher_course')->name('assign_teacher_course');
 Route::get('/assign_teacher_show', 'HomeController@assign_teacher_show')->name('assign_teacher_show');
 
 

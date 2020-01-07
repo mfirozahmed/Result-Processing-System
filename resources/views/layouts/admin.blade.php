@@ -144,7 +144,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('student_remove')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon far fa-circle text-danger"></i>
                                         <p>Remove Student</p>
                                     </a>
                                 </li>
@@ -170,7 +170,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('teacher_remove')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon far fa-circle text-danger"></i>
                                         <p>Remove Teacher</p>
                                     </a>
                                 </li>
