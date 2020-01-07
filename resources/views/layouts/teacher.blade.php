@@ -134,7 +134,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('my_courses')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon "></i>
                                 <p>My Courses</p>
                             </a>
                         </li>

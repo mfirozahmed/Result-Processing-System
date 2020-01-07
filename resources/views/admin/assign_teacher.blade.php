@@ -35,13 +35,6 @@
             <option>8</option>
           </select>
         </form>
-
-        <input type="text" id="text" />
-        <br>
-
-        
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
         <div class="mt-5"></div>
 
         <table class="table">
@@ -78,8 +71,9 @@
       </div>
       <!-- /.col -->
     </div>
-
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
     <!-- /.row -->
   </div>
-</div><!--  -->
+</div>
 @endsection
