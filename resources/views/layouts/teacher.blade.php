@@ -128,7 +128,7 @@
 
                         <li class="nav-item">
                             <a href="{{route('teacher_profile')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fa fa-id-card"></i>
                                 <p>Profile</p>
                             </a>
                         </li>

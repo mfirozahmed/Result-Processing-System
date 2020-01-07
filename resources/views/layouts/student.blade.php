@@ -123,13 +123,13 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fa fa-address-book"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fa fa-id-card"></i>
                                 <p>Result</p>
                             </a>
                         </li>
