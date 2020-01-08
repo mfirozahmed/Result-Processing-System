@@ -36,8 +36,12 @@ Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_tea
 Route::get('/register_student', 'HomeController@register_student')->name('register_student');
 
 Route::get('/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
+
 Route::get('/assign_teacher_course', 'HomeController@assign_teacher_course')->name('assign_teacher_course');
-Route::get('/assign_teacher_show', 'HomeController@assign_teacher_show')->name('assign_teacher_show');
+
+Route::get('/semester/{id}/courses', 'HomeController@semesterwise_courses');
+
+Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
@@ -55,6 +59,7 @@ Route::get('/student_profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
 Route::post('/student_profile_update_show', 'StudentController@profile_update_show')->name('profile_update_show');
+
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 Route::post('/student/change_password', 'StudentController@student_change_password_submit')->name('student.change_password.submit');
 
@@ -81,5 +86,6 @@ Route::get('/view_student_profile', 'TeacherController@view_student_profile')->n
 
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
 Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
+
 Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');
 Route::post('/teacher/change_password', 'TeacherController@teacher_change_password_submit')->name('teacher.change_password.submit');

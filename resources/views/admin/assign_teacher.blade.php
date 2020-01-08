@@ -1,18 +1,5 @@
 @extends('layouts.admin')
 
-@section('value')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-  $(function() {
-    $("#valueFind").change(function() {
-      var displayValue = $("#valueFind option:selected").text();
-
-      $("#text").val(displayValue);
-    })
-  })
-</script>
-@endsection('value')
-
 @section('content')
 <br>
 <div class="container center_div">
@@ -28,9 +15,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <!-- <th scope="col"><a href="www.youtube.com">First Semester </a></th> -->
-              <th scope="col">First Semester</th>
-              <th scope="col">Second Semester</th>
+              <th scope="col"><a href="semester/{{1}}/courses">First Semester</a></th>
+              <th scope="col"><a href="semester/{{2}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -39,8 +25,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">First Semester</th>
-              <th scope="col">Second Semester</th>
+              <th scope="col"><a href="semester/{{3}}/courses">First Semester</a></th>
+              <th scope="col"><a href="semester/{{4}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -49,8 +35,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">First Semester</th>
-              <th scope="col">Second Semester</th>
+              <th scope="col"><a href="semester/{{5}}/courses">First Semester</a></th>
+              <th scope="col"><a href="semester/{{6}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -59,8 +45,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">First Semester</th>
-              <th scope="col">Second Semester</th>
+              <th scope="col"><a href="semester/{{7}}/courses">First Semester</a></th>
+              <th scope="col"><a href="semester/{{8}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>

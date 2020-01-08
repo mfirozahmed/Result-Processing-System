@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Student;
 use App\Teacher;
+use App\Course;
+use App\Course_Teacher;
 
 class HomeController extends Controller
 {
@@ -135,14 +137,21 @@ class HomeController extends Controller
         return view('admin.register_student_show');
     }
 
-    public function assign_teacher_course()
+    public function semesterwise_courses($id)
     {
-        return view('admin.assign_teacher_course');
+        //return $id;
+        $all_courses = Course::where('sem', '=', $id)->get();
+        //return $all_courses;
+        return view('admin.assign_teacher_course')->with('all_courses', $all_courses);
     }
 
-    public function assign_teacher_show()
+    public function assign_teacher_show($id)
     {
-        return view('admin.assign_teacher_show');
+        $all_teachers = Course_Teacher::where('code', '=', $id)->first();
+        //return $all_teachers->username;
+        $all_teachers = Teacher::where('username', '!=', $all_teachers->username)->get();
+        //return $all_teachers;
+        return view('admin.assign_teacher_show')->with('id', $id)->with('all_teachers', $all_teachers);
     }
 
     public function change_password()
@@ -172,7 +181,7 @@ class HomeController extends Controller
                 return redirect()->intended(route('home'));
             }
         }
-        
+
         return "Wrong Password";
     }
 
