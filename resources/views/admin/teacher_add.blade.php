@@ -173,8 +173,14 @@
                                 <p>Register Student In Course</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.change_password')}}" class="nav-link">
+                                <i class="nav-icon fa fa-lock"></i>
+                                <p>Change Password</p>
+                            </a>
+                        </li>
 
-                        <li class="nav-header">LABELS</li>
+                        <!-- <li class="nav-header">LABELS</li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="nav-icon far fa-circle text-danger"></i>
