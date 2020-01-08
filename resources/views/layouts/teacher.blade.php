@@ -128,7 +128,7 @@
 
                         <li class="nav-item">
                             <a href="{{route('teacher_profile')}}" class="nav-link">
-                                <i class="nav-icon fa fa-id-card"></i>
+                                <i class="nav-icon fa fa-address-book"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
@@ -140,8 +140,15 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('view_student_profile')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fa fa-eye"></i>
                                 <p>View Student's Profile</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('teacher.change_password')}}" class="nav-link">
+                                <i class="nav-icon fa fa-lock"></i>
+                                <p>Change Password</p>
                             </a>
                         </li>
 

@@ -144,4 +144,9 @@ class HomeController extends Controller
         return view('admin.assign_teacher_show');
     }
 
+    public function change_password()
+    {
+        return view('admin.change_password');
+    }
+
 }

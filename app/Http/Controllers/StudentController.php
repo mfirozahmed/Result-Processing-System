@@ -47,4 +47,9 @@ class StudentController extends Controller
         
         return view('student.student_profile_update_show')->with('student', $student);
     }
+
+    public function student_change_password()
+    {
+        return view('student.change_password');
+    }
 }

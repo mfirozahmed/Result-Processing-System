@@ -144,4 +144,9 @@ class TeacherController extends Controller
         );
         return view('teacher.show_student_profile')->with($data);
     }
+
+    public function teacher_change_password()
+    {
+        return view('teacher.change_password');
+    }
 }

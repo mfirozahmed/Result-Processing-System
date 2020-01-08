@@ -38,6 +38,7 @@ Route::get('/register_student', 'HomeController@register_student')->name('regist
 Route::get('/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
 Route::get('/assign_teacher_course', 'HomeController@assign_teacher_course')->name('assign_teacher_course');
 Route::get('/assign_teacher_show', 'HomeController@assign_teacher_show')->name('assign_teacher_show');
+Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 
 
 
@@ -52,6 +53,7 @@ Route::get('/student_profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
 Route::post('/student_profile_update_show', 'StudentController@profile_update_show')->name('profile_update_show');
+Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 
 
 
@@ -76,9 +78,4 @@ Route::get('/view_student_profile', 'TeacherController@view_student_profile')->n
 
 Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
 Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
-
-
-
-
-Route::get('/test', 'TestController@index')->name('test');
-Route::get('/about', 'TestController@about')->name('about');
+Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');

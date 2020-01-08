@@ -135,6 +135,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{route('student.change_password')}}" class="nav-link">
+                                <i class="nav-icon fa fa-lock"></i>
+                                <p>Change Password</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{route('student.logout')}}" class="nav-link">
                                 <i class="nav-icon far fa-circle text-danger"></i>
                                 <p>Logout</p>
