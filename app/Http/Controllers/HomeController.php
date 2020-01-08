@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use App\Student;
 use App\Teacher;
 
@@ -147,6 +148,32 @@ class HomeController extends Controller
     public function change_password()
     {
         return view('admin.change_password');
+    }
+    public function change_password_submit(Request $request)
+    {
+        $this->validate($request, [
+            'cu_pa' => 'required',
+            'ne_pa' => 'required',
+            'co_pa' => 'required'
+        ]);
+
+        $old_password = Auth::User()->password;
+        $current_password = $request->input('cu_pa');
+        
+        if (Hash::check($current_password, $old_password))
+        {
+            $new_password = $request->input('ne_pa');
+            $confirm_password = $request->input('co_pa');
+            if ($new_password == $confirm_password)
+            {
+                $user = User::find(Auth::User()->username);
+                $user->password = Hash::make($new_password);
+                $user->save();
+                return redirect()->intended(route('home'));
+            }
+        }
+        
+        return "Wrong Password";
     }
 
 }
