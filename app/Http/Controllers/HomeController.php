@@ -158,6 +158,10 @@ class HomeController extends Controller
     {
         return view('admin.change_password');
     }
+    public function add_course()
+    {
+        return view('admin.add_course');
+    }
     public function change_password_submit(Request $request)
     {
         $this->validate($request, [

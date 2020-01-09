@@ -53,6 +53,10 @@ class StudentController extends Controller
     {
         return view('student.change_password');
     }
+    public function result()
+    {
+        return view('student.result');
+    }
     public function student_change_password_submit(Request $request)
     {
         $this->validate($request, [

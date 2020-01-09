@@ -178,6 +178,12 @@
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('add_course')}}" class="nav-link">
+                                <i class="nav-icon fa fa-plus-square"></i>
+                                <p>Add Course</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">
                                 <i class="nav-icon fa fa-id-card"></i>
                                 <p>Assign Teacher In Course</p>

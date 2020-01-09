@@ -115,7 +115,7 @@
                         with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Students
                                     <i class="right fas fa-angle-left"></i>
@@ -124,13 +124,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('student_add')}}" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon 	fa fa-user-plus"></i>
                                         <p>Add Student</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('student_remove')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon 	fa fa-user-times"></i>
                                         <p>Remove Student</p>
                                     </a>
                                 </li>
@@ -141,7 +141,7 @@
                         
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>
                                     Teachers
                                     <i class="right fas fa-angle-left"></i>
@@ -150,13 +150,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('teacher_add')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon 	fa fa-user-plus"></i>
                                         <p>Add Teacher</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('teacher_remove')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon 	fa fa-user-times"></i>
                                         <p>Remove Teacher</p>
                                     </a>
                                 </li>
@@ -164,14 +164,20 @@
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('add_course')}}" class="nav-link">
+                                <i class="nav-icon fa fa-plus-square"></i>
+                                <p>Add Course</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fa fa-id-card"></i>
                                 <p>Assign Teacher In Course</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('register_student')}}" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fa fa-id-card"></i>
                                 <p>Register Student In Course</p>
                             </a>
                         </li>

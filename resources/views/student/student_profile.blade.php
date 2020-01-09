@@ -5,7 +5,7 @@
 <div class="container center_div">
   @yield('alert')
   <div class="card-body">
-    <h4>Profile</h4>
+    <h4>Profile . .</h4>
     <br>
     <div class="row">
       <div class="input-group mb-3" style="width: 700px;">
@@ -43,21 +43,16 @@
       </div>
       <div class="input-group mb-3" style="width: 700px;">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Address</span>
+          <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Address</span><br><br><br>
           <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{ $student->address }}</span>
         </div>
-
-
       </div>
 
-
-      <!-- /.col -->
     </div>
     <br>
     <h5><a href="{{ route('profile_update') }}" class="button">Update Profile</a></h5>
-    <!-- /.row -->
   </div>
-</div><!--  -->
+</div>
 @endsection
 
 

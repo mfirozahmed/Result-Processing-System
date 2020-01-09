@@ -45,6 +45,7 @@ Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
+Route::get('/add_course', 'HomeController@add_course')->name('add_course');
 
 
 
@@ -55,14 +56,14 @@ Route::post('/student/login', 'Auth\StudentLoginController@login')->name('studen
 
 Route::get('/student/logout', 'Auth\StudentLoginController@logout')->name('student.logout');
 
-Route::get('/student_profile', 'StudentController@profile')->name('profile');
+Route::get('/student/profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
 Route::post('/student_profile_update_show', 'StudentController@profile_update_show')->name('profile_update_show');
 
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 Route::post('/student/change_password', 'StudentController@student_change_password_submit')->name('student.change_password.submit');
-
+Route::get('/student/result', 'StudentController@result')->name('student.result');
 
 
 
