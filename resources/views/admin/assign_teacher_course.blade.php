@@ -4,8 +4,9 @@
 <br>
 <div class="container center_div">
   <div class="card-body">
-    <h4>Assign Teacher In Course . . .</h4>
+  <h4>Assign Teacher In Courses . . . </h4>
     <br>
+    @if (count($all_courses) > 0)
     <div class="row">
       <div class="col-md-9">
         <br>
@@ -33,6 +34,9 @@
       </div>
       <!-- /.col -->
     </div>
+    @else
+            <h5> No course available. </h5>
+        @endif
     <br>
     <!-- /.row -->
   </div>

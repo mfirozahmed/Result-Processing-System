@@ -39,13 +39,16 @@ Route::get('/register_student_show', 'HomeController@register_student_show')->na
 
 Route::get('/assign_teacher_course', 'HomeController@assign_teacher_course')->name('assign_teacher_course');
 
-Route::get('/semester/{id}/courses', 'HomeController@semesterwise_courses');
+Route::get('/semester/{sem}/courses', 'HomeController@semesterwise_courses');
 
-Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
+Route::get('/{code}/teachers', 'HomeController@assign_teacher_show');
+Route::post('/{code}/teachers', 'HomeController@assign_teacher_show_submit');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
+
 Route::get('/add_course', 'HomeController@add_course')->name('add_course');
+Route::post('/add_course', 'HomeController@add_course_submit')->name('add_course.submit');
 
 
 
