@@ -7,7 +7,7 @@
         <h4>Course {{$code}}</h4>
         <br>
         @if (count($all_students) > 0)
-        <form method="POST" action="/my_courses/{{$code}}/marks">
+        <form method="POST" action="/teacher/my_courses/{{$code}}/marks">
             @csrf
             <div class="row">
                 <div class="col-md-12">
@@ -16,10 +16,10 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Reg. No</th>
-                                <th scope="col">TT-1(Out of 20)</th>
-                                <th scope="col">TT-2(out of 20)</th>
-                                <th scope="col">Attendance</th>
-                                <th scope="col">Final Exam Mark</th>
+                                <th scope="col">TT-1 (Out of 20)</th>
+                                <th scope="col">TT-2 (Out of 20)</th>
+                                <th scope="col">Attendance (Out of 10)</th>
+                                <th scope="col">Final Exam Mark (Out of 100)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +31,6 @@
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="tt2[]" value="{{$student->pivot->tt2}}"></td>
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="att[]" value="{{$student->pivot->att}}"></td>
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="final[]" value="{{$student->pivot->final}}"></td>
-                                <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
                         </tbody>
