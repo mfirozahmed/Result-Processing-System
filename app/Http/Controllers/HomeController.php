@@ -220,12 +220,19 @@ class HomeController extends Controller
 
     public function remove_course()
     {
-        return 1;
-        //return view('admin.remove_course');
+        return view('admin.course_remove');
     }
-    public function remove_course_submit()
+    public function remove_course_submit(Request $request)
     {
-        return 2;
+        $this->validate($request, [
+            'code' => 'required'
+        ]);
+        
+        $course = Course::find($request->input('code'));
+        if($course != null)
+            $course->delete();
+
+        return redirect()->intended(route('home'));
     }
 
     public function change_password()

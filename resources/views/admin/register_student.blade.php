@@ -15,8 +15,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col"><a href="semester/{{1}}/courses">First Semester</a></th>
-              <th scope="col"><a href="semester/{{2}}/courses">Second Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{1}}/courses">First Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{2}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -25,8 +25,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col"><a href="semester/{{3}}/courses">First Semester</a></th>
-              <th scope="col"><a href="semester/{{4}}/courses">Second Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{3}}/courses">First Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{4}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -35,8 +35,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col"><a href="semester/{{5}}/courses">First Semester</a></th>
-              <th scope="col"><a href="semester/{{6}}/courses">Second Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{5}}/courses">First Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{6}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>
@@ -45,8 +45,8 @@
         <table class="table" style="width: 400px;">
           <thead class="thead-dark">
             <tr>
-              <th scope="col"><a href="semester/{{7}}/courses">First Semester</a></th>
-              <th scope="col"><a href="semester/{{8}}/courses">Second Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{7}}/courses">First Semester</a></th>
+              <th scope="col"><a href="/admin/register_student/semester/{{8}}/courses">Second Semester</a></th>
             </tr>
           </thead>
         </table>

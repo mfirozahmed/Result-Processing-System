@@ -229,14 +229,14 @@
                 <div class="card-body">
                     <h4>Add A Course . .</h4>
                     <br><br>
-                    <form style="width: 500px;" method="POST" action="{{ route('admin.change_password.submit') }}">
-                        <!-- @csrf -->
+                    <form style="width: 500px;" method="POST" action="{{ route('remove_course.submit') }}">
+                         @csrf
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Enter Course Code</span>
                             </div>
-                            <input type="text" name="cu_pa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" name="code" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <br><br>

@@ -39,6 +39,8 @@ Route::get('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeControll
 Route::post('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show_submit');
 
 Route::get('/admin/register_student', 'HomeController@register_student')->name('register_student');
+//Route::get('/admin/register_student/semester/{sem}/courses', 'HomeController@a');
+
 Route::get('/admin/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
@@ -48,6 +50,8 @@ Route::get('/admin/course_add', 'HomeController@add_course')->name('add_course')
 Route::post('/admin/course_add', 'HomeController@add_course_submit')->name('add_course_submit');
 
 Route::get('/admin/course_remove', 'HomeController@remove_course')->name('remove_course');
+Route::post('/admin/course_remove', 'HomeController@remove_course_submit')->name('remove_course.submit');
+
 
 
 
