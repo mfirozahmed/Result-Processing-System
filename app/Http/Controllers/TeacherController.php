@@ -150,6 +150,10 @@ class TeacherController extends Controller
     {
         return view('teacher.change_password');
     }
+    public function teacher_changed_password()
+    {
+        return view('teacher.changed_password');
+    }
     public function teacher_change_password_submit(Request $request)
     {
         $this->validate($request, [
@@ -172,7 +176,7 @@ class TeacherController extends Controller
                 $user = Teacher::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('teacher_home'));
+                return redirect()->intended(route('teacher.changed_password'));
             }
             else
                 return view('teacher.change_password');

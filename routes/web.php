@@ -45,6 +45,7 @@ Route::get('/admin/register_student_show', 'HomeController@register_student_show
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
+Route::get('/admin/password_changed', 'HomeController@changed_password')->name('admin.changed_password');
 
 Route::get('/admin/course_add', 'HomeController@add_course')->name('add_course');
 Route::post('/admin/course_add', 'HomeController@add_course_submit')->name('add_course_submit');
@@ -65,12 +66,12 @@ Route::get('/student/logout', 'Auth\StudentLoginController@logout')->name('stude
 Route::get('/student/profile', 'StudentController@profile')->name('profile');
 Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
 Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
-Route::post('/student_profile_update_show', 'StudentController@profile_update_show')->name('profile_update_show');
+Route::get('/student_profile_updated', 'StudentController@profile_update_show')->name('profile_update_show');
 
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 Route::post('/student/change_password', 'StudentController@student_change_password_submit')->name('student.change_password.submit');
 Route::get('/student/result', 'StudentController@result')->name('student.result');
-
+Route::get('/student/password_changed', 'StudentController@student_changed_password')->name('student.changed_password');
 
 
 
@@ -96,3 +97,4 @@ Route::get('/teacher/teacher_updated_profile', 'TeacherController@profile_update
 
 Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');
 Route::post('/teacher/change_password', 'TeacherController@teacher_change_password_submit')->name('teacher.change_password.submit');
+Route::get('/teacher/password_changed', 'TeacherController@teacher_changed_password')->name('teacher.changed_password');

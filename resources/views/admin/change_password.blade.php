@@ -3,6 +3,7 @@
 @section('content')
 <br>
 <div class="container center_div">
+    @yield('show')
     <div class="card-body">
         <h4>Change Your Password . .</h4>
         <br><br>
@@ -32,7 +33,7 @@
             <br><br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-       
+
     </div>
 </div>
 @endsection
