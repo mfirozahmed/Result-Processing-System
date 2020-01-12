@@ -4,6 +4,7 @@
 @section('content')
 <br>
 <div class="container center_div">
+    @include('inc.message')
     <div class="card-body">
       <h4>Assign Teacher In Courses . . .</h4>
         <br>

@@ -3,7 +3,7 @@
 @section('content')
 <br>
 <div class="container center_div">
-    @yield('show')
+    @include('inc.message')
     <div class="card-body">
         <h4>Change Your Password . .</h4>
         <br><br>

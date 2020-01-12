@@ -4,6 +4,7 @@
 @section('content')
 <br>
 <div class="container center_div">
+    @include('inc.message')
     <div class="card-body">
         <h4>Register Students In Course . . .</h4>
         <br>
@@ -23,8 +24,8 @@
                         @foreach ($all_courses as $course)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td><a href="/{{$course->code}}/teachers">{{ $course->code }}</a></td>
-                            <td><a href="/{{$course->code}}/teachers">{{ $course->title }}</a></td>
+                            <td><a href="/admin/register_student/semester/{{$sem}}/{{$course->code}}/students">{{ $course->code }}</a></td>
+                            <td><a href="/admin/register_student/semester/{{$sem}}/{{$course->code}}/students">{{ $course->title }}</a></td>
                             <td>{{ $course->credit }}</td>
                         </tr>
                         @endforeach

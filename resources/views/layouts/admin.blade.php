@@ -33,7 +33,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -229,18 +228,6 @@
                                 <p>Logout</p>
                             </a>
                         </li>
-
-                        <!--li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="nav-icon far fa-circle text-danger"></i>
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li-->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

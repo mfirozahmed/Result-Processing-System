@@ -39,9 +39,10 @@ Route::get('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeControll
 Route::post('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show_submit');
 
 Route::get('/admin/register_student', 'HomeController@register_student')->name('register_student');
-//Route::get('/admin/register_student/semester/{sem}/courses', 'HomeController@a');
+Route::get('/admin/register_student/semester/{sem}/courses', 'HomeController@semesterwise_courses');
 
-Route::get('/admin/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
+Route::get('/admin/register_student/semester/{sem}/{code}/students', 'HomeController@register_student_show');
+Route::post('/admin/register_student/semester/{sem}/{code}/students', 'HomeController@register_student_show_submit');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
@@ -57,15 +58,16 @@ Route::post('/admin/course_remove', 'HomeController@remove_course_submit')->name
 
 
 
-Route::get('/student_home', 'StudentController@index')->name('student_home');
+Route::get('/student/home', 'StudentController@index')->name('student_home');
+Route::get('/student/logout', 'Auth\StudentLoginController@logout')->name('student.logout');
+
 Route::get('/student/login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');
 Route::post('/student/login', 'Auth\StudentLoginController@login')->name('student.login.submit');
 
-Route::get('/student/logout', 'Auth\StudentLoginController@logout')->name('student.logout');
-
 Route::get('/student/profile', 'StudentController@profile')->name('profile');
-Route::get('/student_profile_update', 'StudentController@profile_1')->name('profile_update');
-Route::post('/student_profile_update', 'StudentController@profile_store')->name('profile.update.submit');
+Route::get('/student/profile/update', 'StudentController@profile_1')->name('profile_update');
+Route::post('/student/profile/update', 'StudentController@profile_store')->name('profile.update.submit');
+
 Route::get('/student_profile_updated', 'StudentController@profile_update_show')->name('profile_update_show');
 
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
@@ -77,24 +79,24 @@ Route::get('/student/password_changed', 'StudentController@student_changed_passw
 
 
 Route::get('/teacher/home', 'TeacherController@index')->name('teacher_home');
+Route::get('/teacher/logout', 'Auth\TeacherLoginController@logout')->name('teacher.logout');
+
 Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
 Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
 
-Route::get('/teacher/logout', 'Auth\TeacherLoginController@logout')->name('teacher.logout');
-
 Route::get('/teacher/profile', 'TeacherController@profile')->name('teacher_profile');
+
 Route::get('/teacher/profile/update', 'TeacherController@profile_update')->name('teacher_profile_update');
 Route::post('/teacher/profile/update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
-Route::get('/teacher/my_courses', 'TeacherController@my_courses')->name('my_courses');
 
+Route::get('/teacher/my_courses', 'TeacherController@my_courses')->name('my_courses');
 Route::get('/teacher/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks');
 Route::post('/teacher/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks_submit');
 
 Route::get('/teacher/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
-
 Route::get('/teacher/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
-Route::get('/teacher/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
+
+Route::get('/teacher/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_profile');
 
 Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');
 Route::post('/teacher/change_password', 'TeacherController@teacher_change_password_submit')->name('teacher.change_password.submit');
-Route::get('/teacher/password_changed', 'TeacherController@teacher_changed_password')->name('teacher.changed_password');

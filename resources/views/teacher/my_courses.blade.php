@@ -30,8 +30,8 @@
                         @foreach ($all_courses as $course)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td><a href="/my_courses/{{$course->code}}/marks">{{ $course->code }}</a></td>
-                            <td><a href="/my_courses/{{$course->code}}/marks">{{ $course->title }}</a></td>
+                            <td><a href="/teacher/my_courses/{{$course->code}}/marks">{{ $course->code }}</a></td>
+                            <td><a href="/teacher/my_courses/{{$course->code}}/marks">{{ $course->title }}</a></td>
                             <td>{{ $course->credit }}</td>
 
                             <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->

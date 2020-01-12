@@ -224,6 +224,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @include('inc.message')
             <br>
             <div class="container center_div">
                 <div class="card-body">

@@ -33,7 +33,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -224,6 +223,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @include('inc.message')
             <br>
             <div class="container center_div">
                     <div class="card-body">

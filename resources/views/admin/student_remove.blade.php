@@ -226,6 +226,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @include('inc.message')
             <br>
             <br>
             <div class="container center_div">

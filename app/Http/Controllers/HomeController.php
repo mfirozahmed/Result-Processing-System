@@ -10,6 +10,7 @@ use App\Student;
 use App\Teacher;
 use App\Course;
 use App\Course_Teacher;
+use App\Course_Student;
 
 class HomeController extends Controller
 {
@@ -72,7 +73,7 @@ class HomeController extends Controller
             }
         }
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('home'))->with('success', 'Students Added Successfully');
     }
 
     public function student_remove()
@@ -88,7 +89,7 @@ class HomeController extends Controller
         $student = Student::find($request->input('reg'));
         $student->delete();
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('home'))->with('success', 'Student Removed Successfully');
     }
 
     public function teacher_add()
@@ -106,7 +107,7 @@ class HomeController extends Controller
         $teacher->password = Hash::make('12345678');
         $teacher->save();
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('home'))->with('success', 'Teacher Added Successfully');
 
     }
 
@@ -123,7 +124,7 @@ class HomeController extends Controller
         $teacher = Teacher::find($request->input('user'));
         $teacher->delete();
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('home'))->with('success', 'Teacher Removed Successfully');
     }
 
     public function assign_teacher()
@@ -136,7 +137,14 @@ class HomeController extends Controller
         //return $id;
         $all_courses = Course::where('sem', '=', $sem)->get();
         //return $all_courses;
-        return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
+
+        $url =  url()->current();
+        $check = 'assign_teacher';
+
+        if(strpos($url, $check) !== false)
+            return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
+        else
+            return view('admin.register_student_course')->with('all_courses', $all_courses)->with('sem', $sem);
     }
 
     public function assign_teacher_show($sem, $code)
@@ -178,7 +186,11 @@ class HomeController extends Controller
             }
         }
 
-        return redirect("/admin/assign_teacher/semester/$sem/courses");
+        $success = 'Teacher Assigned Successfully';
+        if($i > 1)
+            $success = 'Teachers Assigned Successfully';
+        
+        return redirect("/admin/assign_teacher/semester/$sem/courses")->with('success', $success);
         
     }
 
@@ -187,9 +199,52 @@ class HomeController extends Controller
         return view('admin.register_student');
     }
 
-    public function register_student_show()
+    public function register_student_show($sem, $code)
     {
-        return view('admin.register_student_show');
+        $grade = ['null', 'F'];
+        $students = Course_Student::where([
+                                            ['code', '=', $code],
+                                            ['cgpa', '!=', 'F'],
+                                            ])->get();
+        //return $students;
+
+        $all_student[]="";
+        $i=0;
+        foreach($students as $student)
+        {
+            $all_student[$i]= $student->username;
+            $i++;
+        }
+
+        $all_students = Student::whereNotIn('username', $all_student)->get();
+        //return $all_students;
+
+        return view('admin.register_student_show')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem);
+    }
+    public function register_student_show_submit(Request $request, $sem, $code)
+    {
+        if($request->students != null)
+        {
+            $students = $request->input('students');
+            //return $teachers;
+            
+            $i = 0;
+            foreach($students as $student)
+            {
+                //return $teacher;
+                $registered_student = new Course_Student;
+                $registered_student->code = $code;
+                $registered_student->username = $student;
+                $registered_student->save();
+                $i++;
+            }
+        }
+
+        $success = 'Student Registered Successfully';
+        if($i > 1)
+            $success = 'Students Registered Successfully';
+
+        return redirect("/admin/register_student/semester/$sem/courses")->with('success', $success);
     }
 
     public function add_course()
@@ -215,9 +270,9 @@ class HomeController extends Controller
 
         $course->save();
 
-        return redirect()->intended(route('home'));
+        return redirect('/admin/home')->with('success', 'Course Added Successfully');
     }
-
+   // @include('inc.message')
     public function remove_course()
     {
         return view('admin.course_remove');
@@ -232,17 +287,14 @@ class HomeController extends Controller
         if($course != null)
             $course->delete();
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('home'))->with('success', 'Course Removed Successfully');
     }
 
     public function change_password()
     {
         return view('admin.change_password');
     }
-    public function changed_password()
-    {
-        return view('admin.changed_password');
-    }
+
     public function change_password_submit(Request $request)
     {
         $this->validate($request, [
@@ -263,10 +315,10 @@ class HomeController extends Controller
                 $user = User::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('admin.changed_password'));
+                return redirect('/admin/home')->with('success', 'Password Changed Successfully');
             }
         }
 
-        return "Wrong Password";
+        return redirect('/admin/change_password')->with('error', 'Invalid Current Password');
     }
 }

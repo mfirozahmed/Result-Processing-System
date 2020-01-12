@@ -9,19 +9,19 @@
         <div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Name</span>
-                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">Rafee</span>
+                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$student->name}}</span>
             </div>
         </div>
         <div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Registration No</span>
-                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">2016331098</span>
+                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$student->username}}</span>
             </div>
         </div>
         <div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Completed Credit</span>
-                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">104.5</span>
+                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$credits}}</span>
             </div>
         </div>
         <div class="input-group mb-2">
@@ -63,14 +63,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($sem_one as $course)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>CSE332</td>
-                            <td>Software Engineering & Design Patterns Lab</td>
-                            <td>1.5</td>
-                            <td>3.55</td>
-                            <td>A-</td>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $course->code }}</td>
+                            <td>{{ $course->title }}</td>
+                            <td>{{ $course->credit }}</td>
+                            <td>-</td>
+                            <td>{{$grade[$loop->iteration - 1]}}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
 

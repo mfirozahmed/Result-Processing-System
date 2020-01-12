@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Student;
+use App\Course;
+use App\Course_Student;
 
 class StudentController extends Controller
 {
@@ -23,11 +25,7 @@ class StudentController extends Controller
         $student = Auth::user();
         return view('student.student_profile')->with('student', $student);
     }
-    public function profile_1()
-    {
-        $student = Auth::user();
-        return view('student.student_profile_1')->with('student', $student);
-    }
+    
     public function profile_update_show()
     {
         $student = Auth::user();
@@ -59,7 +57,73 @@ class StudentController extends Controller
     }
     public function result()
     {
-        return view('student.result');
+        $id = Auth::user()->username;
+        $student = Student::find($id);
+        
+        $courses = Course_Student::where([
+                                            ['username', '=', $id],
+                                            ['cgpa', '!=', 'F']
+                                                                    ])->get();
+        
+        
+        if(count($courses)< 1)
+            return 1;
+        
+       $i=0;
+
+        foreach($courses as $course)
+        {
+            $all_courses[$i]=$course->code;
+            $i++;
+        }
+
+        $courses = Course::whereIn('code', $all_courses)->get();
+        $credits = 0;
+        foreach($courses as $course)
+            $credits += $course->credit;
+
+        
+        $sem_one = Course::where('sem', '=', '1')->get();
+
+        $i=0;
+        foreach($sem_one as $course)
+        {
+            $all_courses1[$i]=$course->code;
+            $i++;
+        }
+        //return $all_courses1;
+        $x = Course_Student::whereIn('code', $all_courses1)
+                            ->where('username', $id)
+                            ->get();
+        
+        //return $x;
+        $j=0;
+        foreach($sem_one as $course)
+        {
+            foreach($x as $y)
+            {
+                if($course->code == $y->code)
+                {
+                    $grade[$j] = $y->cgpa;
+                }
+                else
+                {
+                    $grade[$j] = 'F';
+                }
+            }
+            $j++;
+        }
+        //return $grade;
+
+        $sem_two = Course::where('sem', '=', '2');
+        $sem_three = Course::where('sem', '=', '3');
+        $sem_four = Course::where('sem', '=', '4');
+        $sem_five = Course::where('sem', '=', '5');
+        $sem_six = Course::where('sem', '=', '6');
+        $sem_seven = Course::where('sem', '=', '7');
+        $sem_eight = Course::where('sem', '=', '8');
+
+        return view('student.result')->with('student', $student)->with('credits', $credits)->with('sem_one', $sem_one)->with('grade', $grade);
     }
     public function student_change_password_submit(Request $request)
     {
@@ -83,11 +147,9 @@ class StudentController extends Controller
                 $user = Student::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('student.changed_password'));
+                return redirect()->intended(route('student_home'))->with('success', 'Password Changed Successfully');
             }
-            else
-                return view('student.change_password');
         }
-        return "Wrong Password";
+        return redirect('/student/change_password')->with('error', 'Invalid Current Password');
     }
 }
