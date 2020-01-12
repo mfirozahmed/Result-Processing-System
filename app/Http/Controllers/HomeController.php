@@ -30,7 +30,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $students = Student::all();
+        $teachers = Teacher::all();
+        $courses = Course::all();
+
+        return view('admin.home')->with('students', $students)->with('teachers', $teachers)->with('courses', $courses);
     }
 
     public function student_add()
@@ -127,6 +131,57 @@ class HomeController extends Controller
         return view('admin.assign_teacher');
     }
 
+    public function semesterwise_courses($sem)
+    {
+        //return $id;
+        $all_courses = Course::where('sem', '=', $sem)->get();
+        //return $all_courses;
+        return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
+    }
+
+    public function assign_teacher_show($sem, $code)
+    {
+        $teachers = Course_Teacher::where('code', '=', $code)->get();
+        //return $teachers;
+
+        $all_teacher[]="";
+        $i=0;
+        foreach($teachers as $teacher)
+        {
+            $all_teacher[$i]= $teacher->username;
+            $i++;
+        }
+
+        $all_teachers = Teacher::whereNotIn('username', $all_teacher)->get();
+
+        //return $all_teachers;
+        
+        return view('admin.assign_teacher_show')->with('code', $code)->with('all_teachers', $all_teachers)->with('sem', $sem);
+    }
+    public function assign_teacher_show_submit(Request $request, $sem, $code)
+    {
+        if($request->teachers != null)
+        {
+            $teachers = $request->input('teachers');
+            //return $teachers;
+            
+            $i = 0;
+            foreach($teachers as $teacher)
+            {
+                //return $teacher;
+                $assigned_teacher = new Course_Teacher;
+                $assigned_teacher->code = $code;
+                $assigned_teacher->username = $teacher;
+                $assigned_teacher->year = date('Y');
+                $assigned_teacher->save();
+                $i++;
+            }
+        }
+
+        return redirect("/admin/assign_teacher/semester/$sem/courses");
+        
+    }
+
     public function register_student()
     {
         return view('admin.register_student');
@@ -137,34 +192,45 @@ class HomeController extends Controller
         return view('admin.register_student_show');
     }
 
-    public function semesterwise_courses($id)
+    public function add_course()
     {
-        //return $id;
-        $all_courses = Course::where('sem', '=', $id)->get();
-        //return $all_courses;
-        return view('admin.assign_teacher_course')->with('all_courses', $all_courses);
+        return view('admin.course_add');
+    }
+    public function add_course_submit(Request $request)
+    {
+        $this->validate($request, [
+            'code' => 'required',
+            'title' => 'required',
+            'credit' => 'required',
+            'sem' => 'required'
+        ]);
+
+        $course = new Course;
+        
+        $course->code = $request->input('code');
+        $course->title = $request->input('title');
+        $course->credit = $request->input('credit');
+        $course->desc = $request->input('desc');
+        $course->sem = $request->input('sem');
+
+        $course->save();
+
+        return redirect()->intended(route('home'));
     }
 
-    public function assign_teacher_show($id)
+    public function remove_course()
     {
-        $all_teachers = Course_Teacher::where('code', '=', $id)->first();
-        //return $all_teachers->username;
-        $all_teachers = Teacher::where('username', '!=', $all_teachers->username)->get();
-        //return $all_teachers;
-        return view('admin.assign_teacher_show')->with('id', $id)->with('all_teachers', $all_teachers);
+        return 1;
+        //return view('admin.remove_course');
+    }
+    public function remove_course_submit()
+    {
+        return 2;
     }
 
     public function change_password()
     {
         return view('admin.change_password');
-    }
-    public function add_course()
-    {
-        return view('admin.course_add');
-    }
-    public function remove_course()
-    {
-        return view('admin.course_remove');
     }
     public function change_password_submit(Request $request)
     {
@@ -192,5 +258,4 @@ class HomeController extends Controller
 
         return "Wrong Password";
     }
-
 }

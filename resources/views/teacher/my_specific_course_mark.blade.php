@@ -7,7 +7,7 @@
         <h4>Course {{$code}}</h4>
         <br>
         @if (count($all_students) > 0)
-        <form method="POST" action="/my_courses/{{$code}}/marks">
+        <form method="POST" action="/teacher/my_courses/{{$code}}/marks">
             @csrf
             <div class="row">
                 <div class="col-md-12">

@@ -17,36 +17,37 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin/logout', 'Auth\LoginController@adminLogout')->name('admin.logout');
+Route::get('/admin/home', 'HomeController@index')->name('home');
+Route::get('/admin/logout', 'Auth\LoginController@adminLogout')->name('admin.logout');
 
-Route::get('/student_add', 'HomeController@student_add')->name('student_add');
-Route::post('/student_add', 'HomeController@student_store')->name('student.add.submit');
+Route::get('/admin/student_add', 'HomeController@student_add')->name('student_add');
+Route::post('/admin/student_add', 'HomeController@student_store')->name('student.add.submit');
 
-Route::get('/student_remove', 'HomeController@student_remove')->name('student_remove');
-Route::post('/student_remove', 'HomeController@student_delete')->name('student.remove.submit');
+Route::get('/admin/student_remove', 'HomeController@student_remove')->name('student_remove');
+Route::post('/admin/student_remove', 'HomeController@student_delete')->name('student.remove.submit');
 
-Route::get('/teacher_add', 'HomeController@teacher_add')->name('teacher_add');
-Route::post('/teacher_add', 'HomeController@teacher_store')->name('teacher.add.submit');
+Route::get('/admin/teacher_add', 'HomeController@teacher_add')->name('teacher_add');
+Route::post('/admin/teacher_add', 'HomeController@teacher_store')->name('teacher.add.submit');
 
-Route::get('/teacher_remove', 'HomeController@teacher_remove')->name('teacher_remove');
-Route::post('/teacher_remove', 'HomeController@teacher_delete')->name('teacher.remove.submit');
+Route::get('/admin/teacher_remove', 'HomeController@teacher_remove')->name('teacher_remove');
+Route::post('/admin/teacher_remove', 'HomeController@teacher_delete')->name('teacher.remove.submit');
 
-Route::get('/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
-Route::get('/register_student', 'HomeController@register_student')->name('register_student');
+Route::get('/admin/assign_teacher', 'HomeController@assign_teacher')->name('assign_teacher');
+Route::get('/admin/assign_teacher/semester/{sem}/courses', 'HomeController@semesterwise_courses');
 
-Route::get('/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
+Route::get('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show');
+Route::post('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show_submit');
 
-Route::get('/assign_teacher_course', 'HomeController@assign_teacher_course')->name('assign_teacher_course');
-
-Route::get('/semester/{id}/courses', 'HomeController@semesterwise_courses');
-
-Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
+Route::get('/admin/register_student', 'HomeController@register_student')->name('register_student');
+Route::get('/admin/register_student_show', 'HomeController@register_student_show')->name('register_student_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
-Route::get('/course_add', 'HomeController@add_course')->name('add_course');
-Route::get('/course_remove', 'HomeController@remove_course')->name('remove_course');
+
+Route::get('/admin/course_add', 'HomeController@add_course')->name('add_course');
+Route::post('/admin/course_add', 'HomeController@add_course_submit')->name('add_course_submit');
+
+Route::get('/admin/course_remove', 'HomeController@remove_course')->name('remove_course');
 
 
 
@@ -70,24 +71,24 @@ Route::get('/student/result', 'StudentController@result')->name('student.result'
 
 
 
-Route::get('/teacher_home', 'TeacherController@index')->name('teacher_home');
+Route::get('/teacher/home', 'TeacherController@index')->name('teacher_home');
 Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
 Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
 
 Route::get('/teacher/logout', 'Auth\TeacherLoginController@logout')->name('teacher.logout');
 
-Route::get('/teacher_profile', 'TeacherController@profile')->name('teacher_profile');
-Route::get('/teacher_profile_update', 'TeacherController@profile_update')->name('teacher_profile_update');
-Route::post('/teacher_profile_update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
-Route::get('/my_courses', 'TeacherController@my_courses')->name('my_courses');
+Route::get('/teacher/profile', 'TeacherController@profile')->name('teacher_profile');
+Route::get('/teacher/profile/update', 'TeacherController@profile_update')->name('teacher_profile_update');
+Route::post('/teacher/profile/update', 'TeacherController@profile_store')->name('teacher_profile.update.submit');
+Route::get('/teacher/my_courses', 'TeacherController@my_courses')->name('my_courses');
 
-Route::get('/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks');
-Route::post('/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks_submit');
+Route::get('/teacher/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks');
+Route::post('/teacher/my_courses/{code}/marks', 'TeacherController@my_specific_course_marks_submit');
 
-Route::get('/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
+Route::get('/teacher/view_student_profile', 'TeacherController@view_student_profile')->name('view_student_profile');
 
-Route::get('/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
-Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
+Route::get('/teacher/show_student_profile', 'TeacherController@show_student_profile')->name('show_student_profile');
+Route::get('/teacher/teacher_updated_profile', 'TeacherController@profile_update_show')->name('show_updated_prifile');
 
 Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');
 Route::post('/teacher/change_password', 'TeacherController@teacher_change_password_submit')->name('teacher.change_password.submit');
