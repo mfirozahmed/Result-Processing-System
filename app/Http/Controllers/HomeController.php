@@ -232,6 +232,10 @@ class HomeController extends Controller
     {
         return view('admin.change_password');
     }
+    public function changed_password()
+    {
+        return view('admin.changed_password');
+    }
     public function change_password_submit(Request $request)
     {
         $this->validate($request, [
@@ -252,7 +256,7 @@ class HomeController extends Controller
                 $user = User::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('home'));
+                return redirect()->intended(route('admin.changed_password'));
             }
         }
 

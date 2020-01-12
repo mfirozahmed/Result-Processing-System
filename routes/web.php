@@ -43,6 +43,7 @@ Route::get('/admin/register_student_show', 'HomeController@register_student_show
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
+Route::get('/admin/password_changed', 'HomeController@changed_password')->name('admin.changed_password');
 
 Route::get('/admin/course_add', 'HomeController@add_course')->name('add_course');
 Route::post('/admin/course_add', 'HomeController@add_course_submit')->name('add_course_submit');
