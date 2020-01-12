@@ -45,7 +45,8 @@ Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
-Route::get('/add_course', 'HomeController@add_course')->name('add_course');
+Route::get('/course_add', 'HomeController@add_course')->name('add_course');
+Route::get('/course_remove', 'HomeController@remove_course')->name('remove_course');
 
 
 

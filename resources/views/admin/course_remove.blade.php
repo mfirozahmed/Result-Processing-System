@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @yield('style')
+    @yield('value')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -41,7 +42,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="{{route('home')}}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -104,7 +105,7 @@
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="" class="d-block">{{ Auth::user()->username }}</a>
+                        <a>{{ Auth::user()->username }}</a>
                     </div>
                 </div>
 
@@ -113,8 +114,9 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Students
@@ -123,7 +125,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{route('student_add')}}" class="nav-link active">
+                                    <a href="{{route('student_add')}}" class="nav-link ">
                                         <i class="nav-icon 	fa fa-user-plus"></i>
                                         <p>Add Student</p>
                                     </a>
@@ -137,6 +139,7 @@
 
                             </ul>
                         </li>
+
 
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -162,8 +165,9 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fa fa-book"></i>
                                 <p>
                                     Courses
@@ -178,7 +182,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('remove_course')}}" class="nav-link">
+                                    <a href="{{route('remove_course')}}" class="nav-link active">
                                         <i class="nav-icon fa fa-minus"></i>
                                         <p>Remove Course</p>
                                     </a>
@@ -186,6 +190,7 @@
 
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">
                                 <i class="nav-icon fa fa-id-card"></i>
@@ -198,6 +203,7 @@
                                 <p>Register Student In Course</p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{route('admin.change_password')}}" class="nav-link">
                                 <i class="nav-icon fa fa-lock"></i>
@@ -205,50 +211,39 @@
                             </a>
                         </li>
 
-
-                        <!-- <li class="nav-header">LABELS</li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="nav-icon far fa-circle text-danger"></i>
-                                {{ __('Logout') }}
+                            <a href="{{route('admin.logout')}}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Logout</p>
                             </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <br>
-            <br>
             <div class="container center_div">
-                <h4>Add Students</h4>
-                <br>
-                <form style="width: 300px;" method="POST" action="{{ route('student.add.submit') }}">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 300px;">Registration No From</span>
+                <div class="card-body">
+                    <h4>Add A Course . .</h4>
+                    <br><br>
+                    <form style="width: 500px;" method="POST" action="{{ route('admin.change_password.submit') }}">
+                        <!-- @csrf -->
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Enter Course Code</span>
+                            </div>
+                            <input type="text" name="cu_pa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
-                        <input type="text" name="ref" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 300px;">Registration No To</span>
-                        </div>
-                        <input type="text" name="ret" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
             </div>
         </div>
         <!-- /.content-wrapper -->

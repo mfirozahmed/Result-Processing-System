@@ -103,7 +103,7 @@
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block">{{ Auth::user()->username }}</a>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
 
 
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>
                                     Teachers
@@ -154,7 +154,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('teacher_remove')}}" class="nav-link">
+                                    <a href="{{route('teacher_remove')}}" class="nav-link active">
                                         <i class="nav-icon 	fa fa-user-times"></i>
                                         <p>Remove Teacher</p>
                                     </a>
@@ -162,11 +162,29 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('add_course')}}" class="nav-link">
-                                <i class="nav-icon fa fa-plus-square"></i>
-                                <p>Add Course</p>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Courses
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('add_course')}}" class="nav-link">
+                                        <i class="nav-icon fa fa-plus"></i>
+                                        <p>Add Course</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('remove_course')}}" class="nav-link">
+                                        <i class="nav-icon fa fa-minus"></i>
+                                        <p>Remove Course</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">

@@ -51,7 +51,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                
+
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -114,7 +114,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Students
@@ -129,16 +129,16 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('student_remove')}}" class="nav-link">
+                                    <a href="{{route('student_remove')}}" class="nav-link active">
                                         <i class="nav-icon 	fa fa-user-times"></i>
                                         <p>Remove Student</p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
 
-                        
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
@@ -160,14 +160,32 @@
                                         <p>Remove Teacher</p>
                                     </a>
                                 </li>
-                              
+
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('add_course')}}" class="nav-link">
-                                <i class="nav-icon fa fa-plus-square"></i>
-                                <p>Add Course</p>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Courses
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('add_course')}}" class="nav-link">
+                                        <i class="nav-icon fa fa-plus"></i>
+                                        <p>Add Course</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('remove_course')}}" class="nav-link">
+                                        <i class="nav-icon fa fa-minus"></i>
+                                        <p>Remove Course</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">
@@ -187,7 +205,7 @@
                                 <p>Change Password</p>
                             </a>
                         </li>
-                       
+
                         <!-- <li class="nav-header">LABELS</li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -213,7 +231,7 @@
             <div class="container center_div">
                 <h4>Remove A Student</h4>
                 <br>
-                <form style="width: 400px;"  method="POST" action="{{ route('student.remove.submit') }}">
+                <form style="width: 400px;" method="POST" action="{{ route('student.remove.submit') }}">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

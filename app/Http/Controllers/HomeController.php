@@ -160,7 +160,11 @@ class HomeController extends Controller
     }
     public function add_course()
     {
-        return view('admin.add_course');
+        return view('admin.course_add');
+    }
+    public function remove_course()
+    {
+        return view('admin.course_remove');
     }
     public function change_password_submit(Request $request)
     {

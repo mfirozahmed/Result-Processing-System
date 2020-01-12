@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+
 @section('content')
 <br>
 <div class="container center_div">
@@ -20,13 +21,13 @@
           </thead>
           <tbody>
             @foreach ($all_courses as $course)
-              <tr>
-                  <th scope="row">{{ $loop->iteration }}</th>
-                  <td><a href="/{{$course->code}}/teachers">{{ $course->code }}</a></td>
-                  <td><a href="/{{$course->code}}/teachers">{{ $course->title }}</a></td>
-                  <td>{{ $course->credit }}</td>
-              </tr>
-              @endforeach
+            <tr>
+              <th scope="row">{{ $loop->iteration }}</th>
+              <td><a href="/{{$course->code}}/teachers">{{ $course->code }}</a></td>
+              <td><a href="/{{$course->code}}/teachers">{{ $course->title }}</a></td>
+              <td>{{ $course->credit }}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
 
