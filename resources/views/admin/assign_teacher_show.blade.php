@@ -7,7 +7,7 @@
     <h4>Assign Teacher(s) In Course "{{$code}}"</h4>
         <br>
         @if (count($all_teachers) > 0)
-        <form method="POST" action="/admin/assign_teacher/semester/{{$sem}}/{{$code}}/teachers">
+        <form method="POST" action="/{{$code}}/teachers">
             @csrf
             <div class="row">
                 <div class="col-md-6">

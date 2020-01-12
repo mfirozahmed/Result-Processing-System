@@ -30,11 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        $teachers = Teacher::all();
-        $courses = Course::all();
-
-        return view('admin.home')->with('students', $students)->with('teachers', $teachers)->with('courses', $courses);
+        return view('admin.home');
     }
 
     public function student_add()
@@ -146,10 +142,10 @@ class HomeController extends Controller
         //return $id;
         $all_courses = Course::where('sem', '=', $sem)->get();
         //return $all_courses;
-        return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
+        return view('admin.assign_teacher_course')->with('all_courses', $all_courses);
     }
 
-    public function assign_teacher_show($sem, $code)
+    public function assign_teacher_show($code)
     {
         $teachers = Course_Teacher::where('code', '=', $code)->get();
         //return $teachers;
@@ -165,8 +161,8 @@ class HomeController extends Controller
         $all_teachers = Teacher::whereNotIn('username', $all_teacher)->get();
 
         //return $all_teachers;
-        
-        return view('admin.assign_teacher_show')->with('code', $code)->with('all_teachers', $all_teachers)->with('sem', $sem);
+
+        return view('admin.assign_teacher_show')->with('code', $code)->with('all_teachers', $all_teachers);
     }
     public function assign_teacher_show_submit(Request $request, $code)
     {
@@ -189,7 +185,7 @@ class HomeController extends Controller
         }
 
         $sem = Course::where('code', '=', $code)->first();
-        return redirect("/admin/assign_teacher/semester/$sem->sem/courses");
+        return redirect("/semester/$sem->sem/courses");
         
     }
 
@@ -251,13 +247,4 @@ class HomeController extends Controller
         return redirect()->intended(route('home'));
     }
 
-    public function remove_course()
-    {
-        return 1;
-        //return view('admin.remove_course');
-    }
-    public function remove_course_submit()
-    {
-        return 2;
-    }
 }
