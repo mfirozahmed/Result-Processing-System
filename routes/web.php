@@ -45,6 +45,7 @@ Route::get('{code}/teachers', 'HomeController@assign_teacher_show');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');
+Route::get('/admin/password_changed', 'HomeController@changed_password')->name('admin.changed_password');
 Route::get('/course_add', 'HomeController@add_course')->name('add_course');
 Route::get('/course_remove', 'HomeController@remove_course')->name('remove_course');
 
@@ -64,6 +65,7 @@ Route::post('/student_profile_update_show', 'StudentController@profile_update_sh
 
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 Route::post('/student/change_password', 'StudentController@student_change_password_submit')->name('student.change_password.submit');
+Route::get('/student/password_changed', 'StudentController@student_changed_password')->name('student.changed_password');
 Route::get('/student/result', 'StudentController@result')->name('student.result');
 
 
@@ -91,3 +93,4 @@ Route::get('/teacher_updated_profile', 'TeacherController@profile_update_show')-
 
 Route::get('/teacher/change_password', 'TeacherController@teacher_change_password')->name('teacher.change_password');
 Route::post('/teacher/change_password', 'TeacherController@teacher_change_password_submit')->name('teacher.change_password.submit');
+Route::get('/teacher/password_changed', 'TeacherController@teacher_changed_password')->name('teacher.changed_password');

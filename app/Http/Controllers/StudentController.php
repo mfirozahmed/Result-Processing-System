@@ -53,6 +53,10 @@ class StudentController extends Controller
     {
         return view('student.change_password');
     }
+    public function student_changed_password()
+    {
+        return view('student.changed_password');
+    }
     public function result()
     {
         return view('student.result');
@@ -79,7 +83,7 @@ class StudentController extends Controller
                 $user = Student::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('student_home'));
+                return redirect()->intended(route('student.changed_password'));
             }
             else
                 return view('student.change_password');
