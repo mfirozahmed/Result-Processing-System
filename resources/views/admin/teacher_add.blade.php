@@ -161,11 +161,29 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('add_course')}}" class="nav-link">
-                                <i class="nav-icon fa fa-plus-square"></i>
-                                <p>Add Course</p>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                <p>
+                                    Courses
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('add_course')}}" class="nav-link">
+                                        <i class="nav-icon 	fa fa-user-plus"></i>
+                                        <p>Add Course</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('remove_course')}}" class="nav-link">
+                                        <i class="nav-icon 	fa fa-user-times"></i>
+                                        <p>Remove Course</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('assign_teacher')}}" class="nav-link">

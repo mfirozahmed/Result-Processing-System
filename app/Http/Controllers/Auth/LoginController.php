@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Auth;
 
 class LoginController extends Controller
@@ -27,7 +28,29 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = "/admin/home";
+    //RouteServiceProvider::HOME;
+    public function login(Request $request)
+    {
+        //Validate the form data
+
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        //Attempt to log the user in
+        
+        if (Auth::guard('web')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember))
+        {
+            // successful-> redirect to intended location
+
+            return redirect()->intended(route('home'));
+        }
+
+        return redirect()->back();
+
+    }
 
     /**
      * Create a new controller instance.
