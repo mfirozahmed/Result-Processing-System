@@ -14,7 +14,6 @@
     <div class="card-body">
         <h4>My Courses</h4>
         <br>
-        @if (count($all_courses) > 0)
         <div class="row">
             <div class="col-md-6">
                 <table class="table">
@@ -43,9 +42,6 @@
             </div>
             <!-- /.col -->
         </div>
-        @else
-            <h5> No course available. </h5>
-        @endif
         <!-- /.row -->
     </div>
 </div><!--  -->

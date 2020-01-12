@@ -137,62 +137,30 @@ class HomeController extends Controller
         return view('admin.register_student_show');
     }
 
-    public function semesterwise_courses($sem)
+    public function semesterwise_courses($id)
     {
         //return $id;
-        $all_courses = Course::where('sem', '=', $sem)->get();
+        $all_courses = Course::where('sem', '=', $id)->get();
         //return $all_courses;
         return view('admin.assign_teacher_course')->with('all_courses', $all_courses);
     }
 
-    public function assign_teacher_show($code)
+    public function assign_teacher_show($id)
     {
-        $teachers = Course_Teacher::where('code', '=', $code)->get();
-        //return $teachers;
-
-        $all_teacher[]="";
-        $i=0;
-        foreach($teachers as $teacher)
-        {
-            $all_teacher[$i]= $teacher->username;
-            $i++;
-        }
-
-        $all_teachers = Teacher::whereNotIn('username', $all_teacher)->get();
-
+        $all_teachers = Course_Teacher::where('code', '=', $id)->first();
+        //return $all_teachers->username;
+        $all_teachers = Teacher::where('username', '!=', $all_teachers->username)->get();
         //return $all_teachers;
-
-        return view('admin.assign_teacher_show')->with('code', $code)->with('all_teachers', $all_teachers);
+        return view('admin.assign_teacher_show')->with('id', $id)->with('all_teachers', $all_teachers);
     }
-    public function assign_teacher_show_submit(Request $request, $code)
-    {
-        if($request->teachers != null)
-        {
-            $teachers = $request->input('teachers');
-            //return $teachers;
-            
-            $i = 0;
-            foreach($teachers as $teacher)
-            {
-                //return $teacher;
-                $assigned_teacher = new Course_Teacher;
-                $assigned_teacher->code = $code;
-                $assigned_teacher->username = $teacher;
-                $assigned_teacher->year = date('Y');
-                $assigned_teacher->save();
-                $i++;
-            }
-        }
-
-        $sem = Course::where('code', '=', $code)->first();
-        return redirect("/semester/$sem->sem/courses");
-        
-    }
-
 
     public function change_password()
     {
         return view('admin.change_password');
+    }
+    public function add_course()
+    {
+        return view('admin.add_course');
     }
     public function change_password_submit(Request $request)
     {
@@ -219,32 +187,6 @@ class HomeController extends Controller
         }
 
         return "Wrong Password";
-    }
-
-    public function add_course()
-    {
-        return view('admin.add_course');
-    }
-    public function add_course_submit(Request $request)
-    {
-        $this->validate($request, [
-            'code' => 'required',
-            'title' => 'required',
-            'credit' => 'required',
-            'sem' => 'required'
-        ]);
-
-        $course = new Course;
-        
-        $course->code = $request->input('code');
-        $course->title = $request->input('title');
-        $course->credit = $request->input('credit');
-        $course->desc = $request->input('desc');
-        $course->sem = $request->input('sem');
-
-        $course->save();
-
-        return redirect()->intended(route('home'));
     }
 
 }
