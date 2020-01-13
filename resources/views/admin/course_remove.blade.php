@@ -228,7 +228,7 @@
             <br>
             <div class="container center_div">
                 <div class="card-body">
-                    <h4>Add A Course . .</h4>
+                    <h4>Remove A Course . .</h4>
                     <br><br>
                     <form style="width: 500px;" method="POST" action="{{ route('remove_course.submit') }}">
                          @csrf

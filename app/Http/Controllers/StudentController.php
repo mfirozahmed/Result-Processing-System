@@ -147,7 +147,7 @@ class StudentController extends Controller
                 $user = Student::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('student_home'))->with('success', 'Password Changed Successfully');
+                return redirect()->intended(route('student_home'))->with('success', 'Password has been changed successfully..');
             }
         }
         return redirect('/student/change_password')->with('error', 'Invalid Current Password');

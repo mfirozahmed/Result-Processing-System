@@ -37,7 +37,7 @@
             <div class="col-lg-3 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>***</h3>
+                            <h3>{{count($students)}}</h3>
                             <p>Total Students</p>
                         </div>
                         
@@ -51,7 +51,7 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>***</h3>
+                            <h3>{{count($teachers)}}</h3>
                             <p>Total Teachers</p>
                         </div>
                         <div class="icon">
@@ -64,7 +64,7 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>***</h3>
+                            <h3>{{count($courses)}}</h3>
                             <p>Total Courses</p>
                         </div>
                         <div class="icon">

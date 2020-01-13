@@ -52,7 +52,7 @@ class TeacherController extends Controller
 
         $teacher->save();
         
-        return redirect("/teacher/profile")->with('success', 'Profile Updated Successfully')->with('teacher', $teacher);
+        return redirect("/teacher/profile")->with('success', 'Profile has been updated successfully..')->with('teacher', $teacher);
     }
 
     public function my_courses()
@@ -176,7 +176,7 @@ class TeacherController extends Controller
                 $user = Teacher::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect()->intended(route('teacher_home'))->with('success', 'Password Changed Successfully');
+                return redirect()->intended(route('teacher_home'))->with('success', 'Password has been changed successfully..');
             }
         }
         return redirect('/teacher/change_password')->with('error', 'Invalid Current Password');

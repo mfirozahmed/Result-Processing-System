@@ -73,7 +73,7 @@ class HomeController extends Controller
             }
         }
 
-        return redirect()->intended(route('home'))->with('success', 'Students Added Successfully');
+        return redirect()->intended(route('home'))->with('success', 'Students have been added successfully..');
     }
 
     public function student_remove()
@@ -89,7 +89,7 @@ class HomeController extends Controller
         $student = Student::find($request->input('reg'));
         $student->delete();
 
-        return redirect()->intended(route('home'))->with('success', 'Student Removed Successfully');
+        return redirect()->intended(route('home'))->with('success', 'Student has been removed successfully..');
     }
 
     public function teacher_add()
@@ -107,7 +107,7 @@ class HomeController extends Controller
         $teacher->password = Hash::make('12345678');
         $teacher->save();
 
-        return redirect()->intended(route('home'))->with('success', 'Teacher Added Successfully');
+        return redirect()->intended(route('home'))->with('success', 'Teacher has been added successfully..');
 
     }
 
@@ -124,7 +124,7 @@ class HomeController extends Controller
         $teacher = Teacher::find($request->input('user'));
         $teacher->delete();
 
-        return redirect()->intended(route('home'))->with('success', 'Teacher Removed Successfully');
+        return redirect()->intended(route('home'))->with('success', 'Teacher has been removed successfully..');
     }
 
     public function assign_teacher()
@@ -186,9 +186,9 @@ class HomeController extends Controller
             }
         }
 
-        $success = 'Teacher Assigned Successfully';
+        $success = 'Teacher has been assigned successfully..';
         if($i > 1)
-            $success = 'Teachers Assigned Successfully';
+            $success = 'Teachers have been assigned successfully..';
         
         return redirect("/admin/assign_teacher/semester/$sem/courses")->with('success', $success);
         
@@ -240,9 +240,9 @@ class HomeController extends Controller
             }
         }
 
-        $success = 'Student Registered Successfully';
+        $success = 'Student has been registered successfully..';
         if($i > 1)
-            $success = 'Students Registered Successfully';
+            $success = 'Students have been registered successfully..';
 
         return redirect("/admin/register_student/semester/$sem/courses")->with('success', $success);
     }
@@ -270,7 +270,7 @@ class HomeController extends Controller
 
         $course->save();
 
-        return redirect('/admin/home')->with('success', 'Course Added Successfully');
+        return redirect('/admin/home')->with('success', 'Course has been added successfully..');
     }
    // @include('inc.message')
     public function remove_course()
@@ -287,7 +287,7 @@ class HomeController extends Controller
         if($course != null)
             $course->delete();
 
-        return redirect()->intended(route('home'))->with('success', 'Course Removed Successfully');
+        return redirect()->intended(route('home'))->with('success', 'Course has been removed successfully..');
     }
 
     public function change_password()
@@ -315,7 +315,7 @@ class HomeController extends Controller
                 $user = User::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
-                return redirect('/admin/home')->with('success', 'Password Changed Successfully');
+                return redirect('/admin/home')->with('success', 'Password has been changed successfully..');
             }
         }
 
