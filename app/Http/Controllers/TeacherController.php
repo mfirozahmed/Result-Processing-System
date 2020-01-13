@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Session;
 use App\Teacher;
 use App\Student;
 use App\Course;
@@ -51,8 +52,10 @@ class TeacherController extends Controller
         $teacher->phone = $request->input('phone');;
 
         $teacher->save();
+
+        Session::flash('success', 'Profile has been updated successfully..');
         
-        return redirect("/teacher/profile")->with('success', 'Profile has been updated successfully..')->with('teacher', $teacher);
+        return redirect("/teacher/profile");
     }
 
     public function my_courses()
@@ -100,25 +103,55 @@ class TeacherController extends Controller
                 $cal += $indv_std->final*.7;
 
                 if ($cal>79)
-                    $indv_std->cgpa = 'A+';
+                {
+                    $indv_std->grade = 'A+';
+                    $indv_std->cgpa = '4.00';
+                }
                 elseif ($cal>74 && $cal<80)
-                    $indv_std->cgpa = 'A'; 
+                {
+                    $indv_std->grade = 'A';
+                    $indv_std->cgpa = '3.75';
+                } 
                 elseif ($cal>69 && $cal<75) 
-                    $indv_std->cgpa = 'A-';
+                {
+                    $indv_std->grade = 'A-';
+                    $indv_std->cgpa = '3.50';
+                }
                 elseif ($cal>64 && $cal<70) 
-                    $indv_std->cgpa = 'B+';
+                {
+                    $indv_std->grade = 'B+';
+                    $indv_std->cgpa = '3.25';
+                }
                 elseif ($cal>59 && $cal<65) 
-                    $indv_std->cgpa = 'B';
+                {
+                    $indv_std->grade = 'B';
+                    $indv_std->cgpa = '3.00';
+                }
                 elseif ($cal>54 && $cal<60) 
-                    $indv_std->cgpa = 'B-';
+                {
+                    $indv_std->grade = 'B-';
+                    $indv_std->cgpa = '2.75';
+                }
                 elseif ($cal>49 && $cal<55) 
-                    $indv_std->cgpa = 'C+';
+                {
+                    $indv_std->grade = 'C+';
+                    $indv_std->cgpa = '2.50';
+                }
                 elseif ($cal>44 && $cal<50) 
-                    $indv_std->cgpa = 'C';
+                {
+                    $indv_std->grade = 'C';
+                    $indv_std->cgpa = '2.25';
+                }
                 elseif ($cal>39 && $cal<45) 
-                    $indv_std->cgpa = 'C-';
+                {
+                    $indv_std->grade = 'C-';
+                    $indv_std->cgpa = '2.00';
+                }
                 else 
-                    $indv_std->cgpa = 'F';
+                {
+                    $indv_std->grade = 'F';
+                    $indv_std->cgpa = '0.00';
+                }
 
                 $indv_std->save();
 

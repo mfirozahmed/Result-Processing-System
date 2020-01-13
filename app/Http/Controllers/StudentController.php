@@ -60,18 +60,18 @@ class StudentController extends Controller
         $id = Auth::user()->username;
         $student = Student::find($id);
         
-        $courses = Course_Student::where([
+        $coursesx = Course_Student::where([
                                             ['username', '=', $id],
-                                            ['cgpa', '!=', 'F']
+                                            ['grade', '!=', 'F']
                                                                     ])->get();
         
-        
-        if(count($courses)< 1)
+        //return $coursesx;
+        if(count($coursesx)< 1)
             return 1;
         
        $i=0;
 
-        foreach($courses as $course)
+        foreach($coursesx as $course)
         {
             $all_courses[$i]=$course->code;
             $i++;
@@ -82,9 +82,68 @@ class StudentController extends Controller
         foreach($courses as $course)
             $credits += $course->credit;
 
-        
-        $sem_one = Course::where('sem', '=', '1')->get();
+        $total_gpa = 0;
 
+        foreach($courses as $course)
+        {
+            foreach($coursesx as $y)
+            {
+                if($course->code == $y->code)
+                    $total_gpa += ($course->credit * $y->cgpa);
+            }
+        }
+
+        $total_gpa /= $credits;
+        $total_gpa = number_format($total_gpa, 2, '.', '');
+
+        if ($total_gpa == 4)
+        {
+            $tgrade = 'A+';
+        }
+        elseif ($total_gpa>3.74 && $total_gpa<4)
+        {
+            $tgrade = 'A';
+        } 
+        elseif ($total_gpa>3.49 && $total_gpa<3.75) 
+        {
+            $tgrade = 'A-';
+        }
+        elseif ($total_gpa>3.24 && $total_gpa<3.5) 
+        {
+            $tgrade = 'B+';
+        }
+        elseif ($total_gpa>2.99 && $total_gpa<3.25) 
+        {
+            $tgrade = 'B';
+        }
+        elseif ($total_gpa>2.74 && $total_gpa<3) 
+        {
+            $tgrade = 'B-';
+        }
+        elseif ($total_gpa>2.49 && $total_gpa<2.75) 
+        {
+            $tgrade = 'C+';
+        }
+        elseif ($total_gpa>2.24 && $total_gpa<2.5) 
+        {
+            $tgrade = 'C';
+        }
+        elseif ($total_gpa>1.99 && $total_gpa<2.25) 
+        {
+            $tgrade = 'C-';
+        }
+        else 
+        {
+            $tgrade = 'F';
+        }
+
+
+
+
+
+
+
+        $sem_one = Course::where('sem', '=', '1')->get();
         $i=0;
         foreach($sem_one as $course)
         {
@@ -97,6 +156,8 @@ class StudentController extends Controller
                             ->get();
         
         //return $x;
+        $sem_one_credits = 0;
+        $sem_one_gpa = 0;
         $j=0;
         foreach($sem_one as $course)
         {
@@ -104,18 +165,152 @@ class StudentController extends Controller
             {
                 if($course->code == $y->code)
                 {
-                    $grade[$j] = $y->cgpa;
+                    $grade[$j] = $y->grade;
+                    $cgpa[$j] = $y->cgpa;
+                    $sem_one_credits += $course->credit;
+                    $sem_one_gpa += ($course->credit * $y->cgpa);
+                    break;
                 }
                 else
                 {
                     $grade[$j] = 'F';
+                    $cgpa[$j] = '0.00';
                 }
             }
             $j++;
         }
         //return $grade;
+        $sem_one_gpa /= $sem_one_credits;
+        $sem_one_gpa = number_format($sem_one_gpa, 2, '.', '');
+        
+        if ($sem_one_gpa == 4)
+        {
+            $sem_one_grade = 'A+';
+        }
+        elseif ($sem_one_gpa>3.74 && $sem_one_gpa<4)
+        {
+            $sem_one_grade = 'A';
+        } 
+        elseif ($sem_one_gpa>3.49 && $sem_one_gpa<3.75) 
+        {
+            $sem_one_grade = 'A-';
+        }
+        elseif ($sem_one_gpa>3.24 && $sem_one_gpa<3.5) 
+        {
+            $sem_one_grade = 'B+';
+        }
+        elseif ($sem_one_gpa>2.99 && $sem_one_gpa<3.25) 
+        {
+            $sem_one_grade = 'B';
+        }
+        elseif ($sem_one_gpa>2.74 && $sem_one_gpa<3) 
+        {
+            $sem_one_grade = 'B-';
+        }
+        elseif ($sem_one_gpa>2.49 && $sem_one_gpa<2.75) 
+        {
+            $sem_one_grade = 'C+';
+        }
+        elseif ($sem_one_gpa>2.24 && $sem_one_gpa<2.5) 
+        {
+            $sem_one_grade = 'C';
+        }
+        elseif ($sem_one_gpa>1.99 && $sem_one_gpa<2.25) 
+        {
+            $sem_one_grade = 'C-';
+        }
+        else 
+        {
+            $sem_one_grade = 'F';
+        }
 
-        $sem_two = Course::where('sem', '=', '2');
+        $sem_two = Course::where('sem', '=', '2')->get();
+        //return $sem_two;
+
+        $i=0;
+        $all_courses2[]='';
+        foreach($sem_two as $course)
+        {
+            $all_courses2[$i]=$course->code;
+            $i++;
+        }
+        //return $all_courses1;
+        $x = Course_Student::whereIn('code', $all_courses2)
+                            ->where('username', $id)
+                            ->get();
+        
+        //return $x;
+        $sem_two_credits = 0;
+        $sem_two_gpa = 0;
+        $j=0;
+        $gradex[]='';
+        $cgpax[]='';
+        foreach($sem_two as $course)
+        {
+            foreach($x as $y)
+            {
+                if($course->code == $y->code)
+                {
+                    $gradex[$j] = $y->grade;
+                    $cgpax[$j] = $y->cgpa;
+                    $sem_two_credits += $course->credit;
+                    $sem_two_gpa += ($course->credit * $y->cgpa);
+                    break;
+                }
+                else
+                {
+                    $gradex[$j] = 'F';
+                    $cgpax[$j] = '0.00';
+                }
+            }
+            $j++;
+        }
+        //return $gradex;
+        if($sem_two_credits != 0)
+            $sem_two_gpa /= $sem_two_credits;
+        
+        $sem_two_gpa = number_format($sem_two_gpa, 2, '.', '');
+
+        if ($sem_two_gpa == 4)
+        {
+            $sem_two_grade = 'A+';
+        }
+        elseif ($sem_two_gpa>3.74 && $sem_two_gpa<4)
+        {
+            $sem_two_grade = 'A';
+        } 
+        elseif ($sem_two_gpa>3.49 && $sem_two_gpa<3.75) 
+        {
+            $sem_two_grade = 'A-';
+        }
+        elseif ($sem_two_gpa>3.24 && $sem_two_gpa<3.5) 
+        {
+            $sem_two_grade = 'B+';
+        }
+        elseif ($sem_two_gpa>2.99 && $sem_two_gpa<3.25) 
+        {
+            $sem_two_grade = 'B';
+        }
+        elseif ($sem_two_gpa>2.74 && $sem_two_gpa<3) 
+        {
+            $sem_two_grade = 'B-';
+        }
+        elseif ($sem_two_gpa>2.49 && $sem_two_gpa<2.75) 
+        {
+            $sem_two_grade = 'C+';
+        }
+        elseif ($sem_two_gpa>2.24 && $sem_two_gpa<2.5) 
+        {
+            $sem_two_grade = 'C';
+        }
+        elseif ($sem_two_gpa>1.99 && $sem_two_gpa<2.25) 
+        {
+            $sem_two_grade = 'C-';
+        }
+        else 
+        {
+            $sem_two_grade = 'F';
+        }
         $sem_three = Course::where('sem', '=', '3');
         $sem_four = Course::where('sem', '=', '4');
         $sem_five = Course::where('sem', '=', '5');
@@ -123,7 +318,11 @@ class StudentController extends Controller
         $sem_seven = Course::where('sem', '=', '7');
         $sem_eight = Course::where('sem', '=', '8');
 
-        return view('student.result')->with('student', $student)->with('credits', $credits)->with('sem_one', $sem_one)->with('grade', $grade);
+        return view('student.result')->with('student', $student)->with('credits', $credits)->with('total_gpa', $total_gpa)->with('tgrade', $tgrade)
+                                     ->with('sem_one', $sem_one)->with('grade', $grade)->with('cgpa', $cgpa)
+                                     ->with('sem_one_credits', $sem_one_credits)->with('sem_one_gpa', $sem_one_gpa)->with('sem_one_grade', $sem_one_grade)
+                                     ->with('sem_two', $sem_two)->with('gradex', $gradex)->with('cgpax', $cgpax)
+                                     ->with('sem_two_credits', $sem_two_credits)->with('sem_two_gpa', $sem_two_gpa)->with('sem_two_grade', $sem_two_grade);
     }
     public function student_change_password_submit(Request $request)
     {

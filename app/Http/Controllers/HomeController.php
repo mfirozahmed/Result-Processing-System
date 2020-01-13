@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Session;
 use App\User;
 use App\Student;
 use App\Teacher;
@@ -288,7 +289,9 @@ class HomeController extends Controller
 
         $course->save();
 
-        return redirect('/admin/home')->with('success', 'Course has been added successfully..');
+        Session::flash('success', 'Course has been added successfully..');
+
+        return redirect('/admin/home');
     }
 
     public function remove_course()
