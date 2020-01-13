@@ -198,6 +198,10 @@ class HomeController extends Controller
     {
         return view('admin.register_student');
     }
+    public function register_student_year()
+    {
+        return view('admin.register_student_year');
+    }
 
     public function register_student_show($sem, $code)
     {
