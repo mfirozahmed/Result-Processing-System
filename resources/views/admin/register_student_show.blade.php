@@ -7,7 +7,7 @@
         <h4>Register Student(s) In Course "{{$code}}"</h4>
         <br>
         @if (count($all_students) > 0)
-        <form method="POST" action="/admin/register_student/semester/{{$sem}}/{{$code}}/students">
+        <form method="POST" action="/admin/register_student/year/{{$year}}/semester/{{$sem}}/courses/{{$code}}/students">
             @csrf
             <div class="row">
                 <div class="col-md-6">

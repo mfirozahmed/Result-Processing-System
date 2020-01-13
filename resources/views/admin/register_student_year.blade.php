@@ -19,14 +19,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+                         
+                        @for($i = 0; $i < 5; $i++)
                         <tr>
-                            <th scope="row">1</th>
-                            <td><a href="">2020</a></td>
-
-
+                            <th scope="row">{{$i + 1}}</th>
+                            <td><a href="/admin/register_student/year/{{date('Y') - $i}}">{{date('Y') - $i}}</a></td>
                         </tr>
-               
+                    
+                        @endfor
                     </tbody>
                 </table>
 

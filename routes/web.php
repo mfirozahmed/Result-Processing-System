@@ -38,12 +38,12 @@ Route::get('/admin/assign_teacher/semester/{sem}/courses', 'HomeController@semes
 Route::get('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show');
 Route::post('/admin/assign_teacher/semester/{sem}/{code}/teachers', 'HomeController@assign_teacher_show_submit');
 
-Route::get('/admin/register_student_year', 'HomeController@register_student_year')->name('register_student_year');
-Route::get('/admin/register_student', 'HomeController@register_student')->name('register_student');
-Route::get('/admin/register_student/semester/{sem}/courses', 'HomeController@semesterwise_courses');
+Route::get('/admin/register_student/year', 'HomeController@register_student_year')->name('register_student_year');
+Route::get('/admin/register_student/year/{year}', 'HomeController@register_student')->name('register_student');
+Route::get('/admin/register_student/year/{year}/semester/{sem}/courses', 'HomeController@semesterwise_courses1');
 
-Route::get('/admin/register_student/semester/{sem}/{code}/students', 'HomeController@register_student_show');
-Route::post('/admin/register_student/semester/{sem}/{code}/students', 'HomeController@register_student_show_submit');
+Route::get('/admin/register_student/year/{year}/semester/{sem}/courses/{code}/students', 'HomeController@register_student_show');
+Route::post('/admin/register_student/year/{year}/semester/{sem}/courses/{code}/students', 'HomeController@register_student_show_submit');
 
 Route::get('/admin/change_password', 'HomeController@change_password')->name('admin.change_password');
 Route::post('/admin/change_password', 'HomeController@change_password_submit')->name('admin.change_password.submit');

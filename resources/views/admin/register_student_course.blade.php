@@ -24,8 +24,8 @@
                         @foreach ($all_courses as $course)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td><a href="/admin/register_student/semester/{{$sem}}/{{$course->code}}/students">{{ $course->code }}</a></td>
-                            <td><a href="/admin/register_student/semester/{{$sem}}/{{$course->code}}/students">{{ $course->title }}</a></td>
+                            <td><a href="/admin/register_student/year/{{$year}}/semester/{{$sem}}/courses/{{$course->code}}/students">{{ $course->code }}</a></td>
+                            <td><a href="/admin/register_student/year/{{$year}}/semester/{{$sem}}/courses/{{$course->code}}/students">{{ $course->title }}</a></td>
                             <td>{{ $course->credit }}</td>
                         </tr>
                         @endforeach

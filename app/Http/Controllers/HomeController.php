@@ -146,6 +146,20 @@ class HomeController extends Controller
         else
             return view('admin.register_student_course')->with('all_courses', $all_courses)->with('sem', $sem);
     }
+    public function semesterwise_courses1($year, $sem)
+    {
+        //return $id;
+        $all_courses = Course::where('sem', '=', $sem)->get();
+        //return $all_courses;
+
+        $url =  url()->current();
+        $check = 'assign_teacher';
+
+        if(strpos($url, $check) !== false)
+            return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
+        else
+            return view('admin.register_student_course')->with('all_courses', $all_courses)->with('sem', $sem)->with('year', $year);
+    }
 
     public function assign_teacher_show($sem, $code)
     {
@@ -194,16 +208,16 @@ class HomeController extends Controller
         
     }
 
-    public function register_student()
+    public function register_student($year)
     {
-        return view('admin.register_student');
+        return view('admin.register_student')->with('year', $year);
     }
     public function register_student_year()
     {
         return view('admin.register_student_year');
     }
 
-    public function register_student_show($sem, $code)
+    public function register_student_show($year, $sem, $code)
     {
         $grade = ['null', 'F'];
         $students = Course_Student::where([
@@ -223,9 +237,9 @@ class HomeController extends Controller
         $all_students = Student::whereNotIn('username', $all_student)->get();
         //return $all_students;
 
-        return view('admin.register_student_show')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem);
+        return view('admin.register_student_show')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem)->with('year', $year);
     }
-    public function register_student_show_submit(Request $request, $sem, $code)
+    public function register_student_show_submit(Request $request, $year, $sem, $code)
     {
         if($request->students != null)
         {
@@ -248,7 +262,7 @@ class HomeController extends Controller
         if($i > 1)
             $success = 'Students have been registered successfully..';
 
-        return redirect("/admin/register_student/semester/$sem/courses")->with('success', $success);
+        return redirect("/admin/register_student/year/$year/semester/$sem/courses")->with('success', $success);
     }
 
     public function add_course()
@@ -276,7 +290,7 @@ class HomeController extends Controller
 
         return redirect('/admin/home')->with('success', 'Course has been added successfully..');
     }
-   // @include('inc.message')
+
     public function remove_course()
     {
         return view('admin.course_remove');
