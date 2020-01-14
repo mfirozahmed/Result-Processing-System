@@ -193,7 +193,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('register_student')}}" class="nav-link">
+                            <a href="{{route('register_student_year')}}" class="nav-link">
                                 <i class="nav-icon fa fa-id-card"></i>
                                 <p>Register Student In Course</p>
                             </a>
@@ -226,10 +226,10 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @include('inc.message')
             <br>
             <br>
             <div class="container center_div">
+                @include('inc.message')
                 <h4>Add Students</h4>
                 <br>
                 <form style="width: 300px;" method="POST" action="{{ route('student.add.submit') }}">
