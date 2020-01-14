@@ -53,10 +53,18 @@ class HomeController extends Controller
         $reg_nof = $request->input('ref');
         $reg_not = $request->input('ret');
 
+        if ($reg_nof > $reg_not)
+        {
+            Session::flash('error', 'Starting registration number can not be larger than Ending registration number..');
+
+            return redirect(route('student_add'));
+        }
+
         while ($reg_nof <= $reg_not) {
             $student = new Student;
             $student->username = $reg_nof;
             $student->password = Hash::make($reg_nof);
+            $student->year= substr($reg_nof, 0, 4);
             $student->save();
 
 
@@ -217,22 +225,20 @@ class HomeController extends Controller
         return redirect("/admin/assign_teacher/semester/$sem/courses");
         
     }
-
-    public function register_student($year)
-    {
-        return view('admin.register_student')->with('year', $year);
-    }
     public function register_student_year()
     {
         return view('admin.register_student_year');
     }
-
+    public function register_student($year)
+    {
+        return view('admin.register_student')->with('year', $year);
+    }
     public function register_student_show($year, $sem, $code)
     {
         $grade = ['null', 'F'];
         $students = Course_Student::where([
                                             ['code', '=', $code],
-                                            ['cgpa', '!=', 'F'],
+                                            ['grade', '!=', 'F'],
                                             ])->get();
         //return $students;
 
@@ -244,7 +250,8 @@ class HomeController extends Controller
             $i++;
         }
 
-        $all_students = Student::whereNotIn('username', $all_student)->get();
+        $all_students = Student::whereNotIn('username', $all_student)
+                                ->where('year', $year)->get();
         //return $all_students;
 
         return view('admin.register_student_show')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem)->with('year', $year);

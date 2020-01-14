@@ -224,9 +224,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @include('inc.message')
             <br>
             <div class="container center_div">
+                    @include('inc.message')
                 <div class="card-body">
                     <h4>Remove A Course . .</h4>
                     <br><br>

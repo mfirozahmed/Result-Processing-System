@@ -25,6 +25,12 @@ class StudentController extends Controller
         $student = Auth::user();
         return view('student.student_profile')->with('student', $student);
     }
+    public function profile_update()
+    {
+        $student = Auth::user();
+        return view('student.student_profile_update')->with('student', $student);
+    }    
+
     
     public function profile_update_show()
     {
@@ -93,7 +99,8 @@ class StudentController extends Controller
             }
         }
 
-        $total_gpa /= $credits;
+        if($credits != 0)
+            $total_gpa /= $credits;
         $total_gpa = number_format($total_gpa, 2, '.', '');
 
         if ($total_gpa == 4)
@@ -155,12 +162,20 @@ class StudentController extends Controller
                             ->where('username', $id)
                             ->get();
         
-        //return $x;
+        //if(count($x) < 1)
+            //return 1;
         $sem_one_credits = 0;
         $sem_one_gpa = 0;
         $j=0;
+        $grade[]="";
+        $cgpa[]="";
         foreach($sem_one as $course)
         {
+            if(count($x) < 1)
+            {
+                $grade[$j] = 'F';
+                $cgpa[$j] = '0.00';
+            }
             foreach($x as $y)
             {
                 if($course->code == $y->code)
@@ -179,8 +194,9 @@ class StudentController extends Controller
             }
             $j++;
         }
-        //return $grade;
-        $sem_one_gpa /= $sem_one_credits;
+        //return $cgpa;
+        if($sem_one_credits != 0)
+            $sem_one_gpa /= $sem_one_credits;
         $sem_one_gpa = number_format($sem_one_gpa, 2, '.', '');
         
         if ($sem_one_gpa == 4)
@@ -247,6 +263,11 @@ class StudentController extends Controller
         $cgpax[]='';
         foreach($sem_two as $course)
         {
+            if(count($x) < 1)
+            {
+                $gradex[$j] = 'F';
+                $cgpax[$j] = '0.00';
+            }
             foreach($x as $y)
             {
                 if($course->code == $y->code)

@@ -224,10 +224,11 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @include('inc.message')           
+            
             <br>
             <br>
             <div class="container center_div">
+                    @include('inc.message')
                 <h4>Add A Teacher</h4>
                 <br>
                 <form style="width: 500px;" method="POST" action="{{ route('teacher.add.submit') }}">

@@ -226,10 +226,10 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @include('inc.message')
             <br>
             <br>
             <div class="container center_div">
+                @include('inc.message')
                 <h4>Remove A Student</h4>
                 <br>
                 <form style="width: 400px;" method="POST" action="{{ route('student.remove.submit') }}">

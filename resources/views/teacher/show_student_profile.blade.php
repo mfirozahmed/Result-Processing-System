@@ -4,7 +4,7 @@
 <br>
 <div class="container center_div">
     <div class="card-body">
-        <h4>Student Profile "{{$student->username}}"</h4>
+        <h4>Student Profile "{{$reg}}"</h4>
         <br>
         @if ($student != null)
         <div class="row">

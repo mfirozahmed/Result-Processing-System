@@ -170,13 +170,14 @@ class TeacherController extends Controller
     {
         $reg = $request->input('reg');
         $student = Student::find($reg);
+
         $courses = $student->courses()->get();
 
         $data = array(
             'student' => $student,
             'courses' => $courses
         );
-        return view('teacher.show_student_profile')->with($data);
+        return view('teacher.show_student_profile')->with($data)->with('reg', $reg);
     }
 
     public function teacher_change_password()

@@ -44,6 +44,6 @@ class Student extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'course_student', 'username', 'code')->withPivot('tt1', 'tt2', 'tt3', 'final', 'att', 'cgpa')->using(Course_Student::class);
+        return $this->belongsToMany(Course::class, 'course_student', 'username', 'code')->withPivot('tt1', 'tt2', 'tt3', 'final', 'att', 'cgpa', 'grade')->using(Course_Student::class);
     }
 }
