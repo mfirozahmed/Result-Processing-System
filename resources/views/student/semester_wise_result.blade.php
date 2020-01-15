@@ -154,49 +154,49 @@
 
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                        <a href="/student/semester/{{1}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{2}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{3}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{4}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{5}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{6}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{7}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{8}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/2</p>
                                             </a>

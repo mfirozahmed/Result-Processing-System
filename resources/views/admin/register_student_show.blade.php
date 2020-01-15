@@ -17,7 +17,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Registration No</th>
                                 <th scope="col">
-                                    <a href="{{route('select_all')}}">Select All &nbsp
+                                    <a href="/admin/register_student/year/{{$year}}/semester/{{$sem}}/courses/{{$code}}/students/all_selected">Select All &nbsp
                                     <i class="nav-icon 	fa fa-circle"></i>
                                     </a>
                                 </th>

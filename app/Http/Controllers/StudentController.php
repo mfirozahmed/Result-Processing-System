@@ -372,12 +372,106 @@ class StudentController extends Controller
         }
         return redirect('/student/change_password')->with('error', 'Invalid Current Password');
     }
+
+
+
+
+
+
+
+
     public function total_result()
     {
-        return view('student.total_result');
+        $id = Auth::user()->username;
+        $student = Student::find($id);
+        
+        $coursesx = Course_Student::where([
+                                            ['username', '=', $id],
+                                            ['grade', '!=', 'F']
+                                                                    ])->get();
+        
+        //return $coursesx;
+        if(count($coursesx)< 1)
+            return 1;
+        
+       $i=0;
+       $all_courses[]="";
+       $all_grades[]="";
+       $all_cgpa[]="";
+        foreach($coursesx as $course)
+        {
+            $all_courses[$i]=$course->code;
+            $all_grades[$i]=$course->grade;
+            $all_cgpa[$i]=$course->cgpa;
+            $i++;
+        }
+
+        $courses = Course::whereIn('code', $all_courses)->get();
+        $credits = 0;
+        foreach($courses as $course)
+            $credits += $course->credit;
+
+        $total_gpa = 0;
+
+        foreach($courses as $course)
+        {
+            foreach($coursesx as $y)
+            {
+                if($course->code == $y->code)
+                    $total_gpa += ($course->credit * $y->cgpa);
+            }
+        }
+
+        if($credits != 0)
+            $total_gpa /= $credits;
+        $total_gpa = number_format($total_gpa, 2, '.', '');
+
+        if ($total_gpa == 4)
+        {
+            $tgrade = 'A+';
+        }
+        elseif ($total_gpa>3.74 && $total_gpa<4)
+        {
+            $tgrade = 'A';
+        } 
+        elseif ($total_gpa>3.49 && $total_gpa<3.75) 
+        {
+            $tgrade = 'A-';
+        }
+        elseif ($total_gpa>3.24 && $total_gpa<3.5) 
+        {
+            $tgrade = 'B+';
+        }
+        elseif ($total_gpa>2.99 && $total_gpa<3.25) 
+        {
+            $tgrade = 'B';
+        }
+        elseif ($total_gpa>2.74 && $total_gpa<3) 
+        {
+            $tgrade = 'B-';
+        }
+        elseif ($total_gpa>2.49 && $total_gpa<2.75) 
+        {
+            $tgrade = 'C+';
+        }
+        elseif ($total_gpa>2.24 && $total_gpa<2.5) 
+        {
+            $tgrade = 'C';
+        }
+        elseif ($total_gpa>1.99 && $total_gpa<2.25) 
+        {
+            $tgrade = 'C-';
+        }
+        else 
+        {
+            $tgrade = 'F';
+        }
+        return view('student.total_result')->with('student', $student)->with('courses', $courses)->with('credits', $credits)->with('total_gpa', $total_gpa)->with('tgrade', $tgrade)
+                                            ->with('all_grades', $all_grades)->with('all_cgpa', $all_cgpa);
     }
-    public function semester_wise_result()
+    public function semester_wise_result($sem)
     {
+        return $sem;
         return view('student.semester_wise_result');
     }
 }

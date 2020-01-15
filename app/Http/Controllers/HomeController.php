@@ -229,12 +229,13 @@ class HomeController extends Controller
     }
     public function register_student_show($year, $sem, $code)
     {
-        $grade = ['null', 'F'];
+        //return $code;
         $students = Course_Student::where([
             ['code', '=', $code],
             ['grade', '!=', 'F'],
+            ['year', '=', date('Y')]
         ])->get();
-        //return $students;
+        return $students;
 
         $all_student[] = "";
         $i = 0;
@@ -261,6 +262,8 @@ class HomeController extends Controller
                 $registered_student = new Course_Student;
                 $registered_student->code = $code;
                 $registered_student->username = $student;
+                $registered_student->year = date('Y');
+                $registered_student->grade = 'F';
                 $registered_student->save();
                 $i++;
             }
@@ -352,10 +355,11 @@ class HomeController extends Controller
 
     public function select_all($year, $sem, $code)
     {
-        $grade = ['null', 'F'];
+        //$grade = ['null', 'F'];
         $students = Course_Student::where([
             ['code', '=', $code],
             ['grade', '!=', 'F'],
+            ['year', '=', date('Y')]
         ])->get();
         //return $students;
 
@@ -384,6 +388,8 @@ class HomeController extends Controller
                 $registered_student = new Course_Student;
                 $registered_student->code = $code;
                 $registered_student->username = $student;
+                $registered_student->year = date('Y');
+                $registered_student->grade = 'F';
                 $registered_student->save();
                 $i++;
             }

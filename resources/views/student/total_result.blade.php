@@ -154,49 +154,49 @@
 
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                        <a href="/student/semester/{{1}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{2}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{3}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{4}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{5}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{6}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/2</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{7}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/1</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('student.semester_wise_result')}}" class="nav-link">
+                                            <a href="/student/semester/{{8}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/2</p>
                                             </a>
@@ -240,35 +240,35 @@
                     <h4>Total Result . .</h4>
                     <br>
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Name</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">Rafee</span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Name</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$student->name}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Registration No</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">2016331098</span>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Registration No</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$student->username}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Completed Credit</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">104.5</span>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Completed Credit</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$credits}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Current GPA</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">3.55</span>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Current GPA</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$total_gpa}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Grade</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">A-</span>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 150px;">Grade</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default" style="width: 500px;">{{$tgrade}}</span>
+                            </div>
                         </div>
-                    </div>
                     <br>
                     <div class="row">
                         <div class="col-md-9">
@@ -285,14 +285,16 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>CSE350</td>
-                                        <td>AA</td>
-                                        <td>2</td>
-                                        <td>3.55</td>
-                                        <td>A-</td>
-                                    </tr>
+                                        @foreach ($courses as $course)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $course->code }}</td>
+                                            <td>{{ $course->title }}</td>
+                                            <td>{{ $course->credit }}</td>
+                                            <td>{{ $all_cgpa[ $loop->iteration  - 1] }}</td>
+                                            <td>{{ $all_grades[ $loop->iteration  - 1] }}</td>
+                                        </tr>
+                                        @endforeach
 
                                 </tbody>
                             </table>
