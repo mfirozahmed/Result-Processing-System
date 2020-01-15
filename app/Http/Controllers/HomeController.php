@@ -53,8 +53,7 @@ class HomeController extends Controller
         $reg_nof = $request->input('ref');
         $reg_not = $request->input('ret');
 
-        if ($reg_nof > $reg_not)
-        {
+        if ($reg_nof > $reg_not) {
             Session::flash('error', 'Starting registration number can not be larger than Ending registration number..');
 
             return redirect(route('student_add'));
@@ -64,7 +63,7 @@ class HomeController extends Controller
             $student = new Student;
             $student->username = $reg_nof;
             $student->password = Hash::make($reg_nof);
-            $student->year= substr($reg_nof, 0, 4);
+            $student->year = substr($reg_nof, 0, 4);
             $student->save();
 
 
@@ -96,7 +95,7 @@ class HomeController extends Controller
         $this->validate($request, [
             'reg' => 'required'
         ]);
-        
+
         $student = Student::find($request->input('reg'));
         $student->delete();
 
@@ -123,7 +122,6 @@ class HomeController extends Controller
         Session::flash('success', 'Teacher has been added successfully..');
 
         return redirect()->intended(route('home'));
-
     }
 
     public function teacher_remove()
@@ -135,7 +133,7 @@ class HomeController extends Controller
         $this->validate($request, [
             'user' => 'required'
         ]);
-        
+
         $teacher = Teacher::find($request->input('user'));
         $teacher->delete();
 
@@ -158,7 +156,7 @@ class HomeController extends Controller
         $url =  url()->current();
         $check = 'assign_teacher';
 
-        if(strpos($url, $check) !== false)
+        if (strpos($url, $check) !== false)
             return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
         else
             return view('admin.register_student_course')->with('all_courses', $all_courses)->with('sem', $sem);
@@ -172,7 +170,7 @@ class HomeController extends Controller
         $url =  url()->current();
         $check = 'assign_teacher';
 
-        if(strpos($url, $check) !== false)
+        if (strpos($url, $check) !== false)
             return view('admin.assign_teacher_course')->with('all_courses', $all_courses)->with('sem', $sem);
         else
             return view('admin.register_student_course')->with('all_courses', $all_courses)->with('sem', $sem)->with('year', $year);
@@ -183,30 +181,27 @@ class HomeController extends Controller
         $teachers = Course_Teacher::where('code', '=', $code)->get();
         //return $teachers;
 
-        $all_teacher[]="";
-        $i=0;
-        foreach($teachers as $teacher)
-        {
-            $all_teacher[$i]= $teacher->username;
+        $all_teacher[] = "";
+        $i = 0;
+        foreach ($teachers as $teacher) {
+            $all_teacher[$i] = $teacher->username;
             $i++;
         }
 
         $all_teachers = Teacher::whereNotIn('username', $all_teacher)->get();
 
         //return $all_teachers;
-        
+
         return view('admin.assign_teacher_show')->with('code', $code)->with('all_teachers', $all_teachers)->with('sem', $sem);
     }
     public function assign_teacher_show_submit(Request $request, $sem, $code)
     {
-        if($request->teachers != null)
-        {
+        if ($request->teachers != null) {
             $teachers = $request->input('teachers');
             //return $teachers;
-            
+
             $i = 0;
-            foreach($teachers as $teacher)
-            {
+            foreach ($teachers as $teacher) {
                 //return $teacher;
                 $assigned_teacher = new Course_Teacher;
                 $assigned_teacher->code = $code;
@@ -218,12 +213,11 @@ class HomeController extends Controller
         }
 
         $success = 'Teacher has been assigned successfully..';
-        if($i > 1)
+        if ($i > 1)
             $success = 'Teachers have been assigned successfully..';
-        
+
         Session::flash('success', $success);
         return redirect("/admin/assign_teacher/semester/$sem/courses");
-        
     }
     public function register_student_year()
     {
@@ -237,35 +231,32 @@ class HomeController extends Controller
     {
         $grade = ['null', 'F'];
         $students = Course_Student::where([
-                                            ['code', '=', $code],
-                                            ['grade', '!=', 'F'],
-                                            ])->get();
+            ['code', '=', $code],
+            ['grade', '!=', 'F'],
+        ])->get();
         //return $students;
 
-        $all_student[]="";
-        $i=0;
-        foreach($students as $student)
-        {
-            $all_student[$i]= $student->username;
+        $all_student[] = "";
+        $i = 0;
+        foreach ($students as $student) {
+            $all_student[$i] = $student->username;
             $i++;
         }
 
         $all_students = Student::whereNotIn('username', $all_student)
-                                ->where('year', $year)->get();
+            ->where('year', $year)->get();
         //return $all_students;
 
         return view('admin.register_student_show')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem)->with('year', $year);
     }
     public function register_student_show_submit(Request $request, $year, $sem, $code)
     {
-        if($request->students != null)
-        {
+        if ($request->students != null) {
             $students = $request->input('students');
             //return $teachers;
-            
+
             $i = 0;
-            foreach($students as $student)
-            {
+            foreach ($students as $student) {
                 //return $teacher;
                 $registered_student = new Course_Student;
                 $registered_student->code = $code;
@@ -276,7 +267,7 @@ class HomeController extends Controller
         }
 
         $success = 'Student has been registered successfully..';
-        if($i > 1)
+        if ($i > 1)
             $success = 'Students have been registered successfully..';
 
         Session::flash('success', $success);
@@ -298,7 +289,7 @@ class HomeController extends Controller
         ]);
 
         $course = new Course;
-        
+
         $course->code = $request->input('code');
         $course->title = $request->input('title');
         $course->credit = $request->input('credit');
@@ -321,9 +312,9 @@ class HomeController extends Controller
         $this->validate($request, [
             'code' => 'required'
         ]);
-        
+
         $course = Course::find($request->input('code'));
-        if($course != null)
+        if ($course != null)
             $course->delete();
 
         return redirect()->intended(route('home'))->with('success', 'Course has been removed successfully..');
@@ -344,13 +335,11 @@ class HomeController extends Controller
 
         $old_password = Auth::User()->password;
         $current_password = $request->input('cu_pa');
-        
-        if (Hash::check($current_password, $old_password))
-        {
+
+        if (Hash::check($current_password, $old_password)) {
             $new_password = $request->input('ne_pa');
             $confirm_password = $request->input('co_pa');
-            if ($new_password == $confirm_password)
-            {
+            if ($new_password == $confirm_password) {
                 $user = User::find(Auth::User()->username);
                 $user->password = Hash::make($new_password);
                 $user->save();
@@ -359,5 +348,53 @@ class HomeController extends Controller
         }
 
         return redirect('/admin/change_password')->with('error', 'Invalid Current Password');
+    }
+
+    public function select_all($year, $sem, $code)
+    {
+        $grade = ['null', 'F'];
+        $students = Course_Student::where([
+            ['code', '=', $code],
+            ['grade', '!=', 'F'],
+        ])->get();
+        //return $students;
+
+        $all_student[] = "";
+        $i = 0;
+        foreach ($students as $student) {
+            $all_student[$i] = $student->username;
+            $i++;
+        }
+
+        $all_students = Student::whereNotIn('username', $all_student)
+            ->where('year', $year)->get();
+        //return $all_students;
+
+        return view('admin.select_all')->with('code', $code)->with('all_students', $all_students)->with('sem', $sem)->with('year', $year);
+    }
+    public function select_all_submit(Request $request, $year, $sem, $code)
+    {
+        if ($request->students != null) {
+            $students = $request->input('students');
+            //return $teachers;
+
+            $i = 0;
+            foreach ($students as $student) {
+                //return $teacher;
+                $registered_student = new Course_Student;
+                $registered_student->code = $code;
+                $registered_student->username = $student;
+                $registered_student->save();
+                $i++;
+            }
+        }
+
+        $success = 'Student has been registered successfully..';
+        if ($i > 1)
+            $success = 'Students have been registered successfully..';
+
+        Session::flash('success', $success);
+
+        return redirect("/admin/register_student/year/$year/semester/$sem/courses");
     }
 }

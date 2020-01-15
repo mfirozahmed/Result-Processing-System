@@ -17,8 +17,8 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Registration No</th>
                                 <th scope="col">
-                                    <a href="{{route('select_all')}}">Select All &nbsp
-                                    <i class="nav-icon 	fa fa-circle"></i>
+                                    <a href="#">Select All &nbsp
+                                    <i class="nav-icon 	fa fa-check-circle"></i>
                                     </a>
                                 </th>
 
@@ -31,7 +31,7 @@
                                 <td>{{ $student->username }}</td>
                                 <td>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="students[]" value="{{ $student->username }}">
+                                        <input type="checkbox" checked="checked" name="students[]" value="{{ $student->username }}">
                                     </div>
                                 </td>
 
