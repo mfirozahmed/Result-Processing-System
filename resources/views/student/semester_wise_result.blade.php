@@ -128,7 +128,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-id-card"></i>
                                 <p>
@@ -143,7 +143,7 @@
                                         <p>Total Result</p>
                                     </a>
                                 </li>
-                                <li class="nav-item has-treeview">
+                                <li class="nav-item has-treeview menu-open">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon fa fa-id-card"></i>
                                         <p>
@@ -234,7 +234,56 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @yield('content')
+            <br>
+            <div class="container center_div">
+                <div class="card-body">
+                    <h4>Semester Wise Result . .</h4>
+                    <br>
+                  
+                    <h5>First Year First Semester</h5>
+                    <div>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Total Credit</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">24</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Total GPA</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">3.55</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Grade</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">A-</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Course Code</th>
+                                        <th scope="col">Course Title</th>
+                                        <th scope="col">Credit</th>
+                                        <th scope="col">GPA</th>
+                                        <th scope="col">Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                             
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>CSE350</td>
+                                        <td>AA</td>
+                                        <td>2</td>
+                                        <td>3.55</td>
+                                        <td>A-</td>
+                                    </tr>
+                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br> <br>
+                  
+                </div>
+            </div>
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">

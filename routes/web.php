@@ -73,7 +73,8 @@ Route::get('/student_profile_updated', 'StudentController@profile_update_show')-
 
 Route::get('/student/change_password', 'StudentController@student_change_password')->name('student.change_password');
 Route::post('/student/change_password', 'StudentController@student_change_password_submit')->name('student.change_password.submit');
-Route::get('/student/result', 'StudentController@result')->name('student.result');
+Route::get('/student/total_result', 'StudentController@total_result')->name('student.total_result');
+Route::get('/student/semester_wise_result', 'StudentController@semester_wise_result')->name('student.semester_wise_result');
 Route::get('/student/password_changed', 'StudentController@student_changed_password')->name('student.changed_password');
 
 

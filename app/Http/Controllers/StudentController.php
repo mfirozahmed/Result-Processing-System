@@ -372,4 +372,12 @@ class StudentController extends Controller
         }
         return redirect('/student/change_password')->with('error', 'Invalid Current Password');
     }
+    public function total_result()
+    {
+        return view('student.total_result');
+    }
+    public function semester_wise_result()
+    {
+        return view('student.semester_wise_result');
+    }
 }

@@ -44,7 +44,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         @else
-            <h5> No teacher available. </h5>
+            <h5> No student available. </h5>
         @endif
     </div>
 
