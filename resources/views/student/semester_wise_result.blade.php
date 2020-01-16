@@ -240,15 +240,15 @@
                     <h4>Semester Wise Result . .</h4>
                     <br>
                   
-                    <h5>First Year First Semester</h5>
+                    <h5>{{$year}} Year {{$semester}} Semester</h5>
                     <div>
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Total Credit</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">24</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">{{$sem_credits}}</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Total GPA</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">3.55</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">{{$sem_gpa}}</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100px;">Grade</span>
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">A-</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 70px;">{{$sem_grade}}</span>
                         </div>
                     </div>
                     <br>
@@ -267,14 +267,16 @@
                                 </thead>
                                 <tbody>
                              
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>CSE350</td>
-                                        <td>AA</td>
-                                        <td>2</td>
-                                        <td>3.55</td>
-                                        <td>A-</td>
-                                    </tr>
+                                        @foreach ($sem_courses as $course)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $course->code }}</td>
+                                            <td>{{ $course->title }}</td>
+                                            <td>{{ $course->credit }}</td>
+                                            <td>{{$gpa[$loop->iteration - 1]}}</td>
+                                            <td>{{$grade[$loop->iteration - 1]}}</td>
+                                        </tr>
+                                        @endforeach
                 
                                 </tbody>
                             </table>
