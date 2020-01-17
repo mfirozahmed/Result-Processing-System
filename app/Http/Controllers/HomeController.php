@@ -235,7 +235,7 @@ class HomeController extends Controller
             ['grade', '!=', 'F'],
             ['year', '=', date('Y')]
         ])->get();
-        return $students;
+        //return $students;
 
         $all_student[] = "";
         $i = 0;
