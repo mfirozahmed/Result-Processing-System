@@ -55,7 +55,6 @@
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="tt2[]" value="{{$student->pivot->tt2}}"></td>
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="att[]" value="{{$student->pivot->att}}"></td>
                                 <td><input class="form-control input-sm" id="inputsm" type="number" name="final[]" value="{{$student->pivot->final}}"></td>
-                                <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
                         </tbody>

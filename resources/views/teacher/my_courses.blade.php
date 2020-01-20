@@ -11,6 +11,7 @@
 @section('content')
 <br>
 <div class="container center_div">
+        @include('inc.message')
     <div class="card-body">
         <h4>My Courses</h4>
         <br>

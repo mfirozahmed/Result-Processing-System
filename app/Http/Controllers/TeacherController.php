@@ -273,7 +273,7 @@ class TeacherController extends Controller
                 }
             }
         }
-
+        Session::flash('success', 'Results Updated successfully');
         return redirect(route('my_courses'));
     }
     public function view_student_profile()
