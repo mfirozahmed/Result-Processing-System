@@ -52,19 +52,23 @@
             <a class="github" href="https://github.com/Rough22/RPMS" title="Find this project on GitHub"><svg class="icon icon--github">
                     <use xlink:href="#icon-github"></use>
                 </svg></a>
-            
+
         </div>
         <div class="content">
             <canvas class="scene scene--full" id="scene"></canvas>
             <div class="content__inner">
-                <h2 class="content__title">Result Processing System</h2><br><br>
+                @yield('content')
+                <!-- <h2 class="content__title">Result Processing System</h2><br><br>
                 <h3 class="content__subtitle">
                     <a class="btn btn-primary btn-lg" href="{{ route('login') }}" role="button" style="tab-size: 30;"> ADMIN </a>
                     <span style="display:inline-block; width: 15px;"> </span>
                     <a class="btn btn-success btn-lg" href="{{ route('teacher.login') }}" role="button"> TEACHER </a>
                     <span style="display:inline-block; width: 15px;"> </span>
-                    <a class="btn btn-success btn-lg" href="{{ route('student.login') }}" role="button"> STUDENT </a>
+                    <a class="btn btn-success btn-lg" href="{{ route('student.login') }}" role="button"> STUDENT </a> -->
             </div>
+
+
+
         </div>
     </main>
     <script src="js/demo.js"></script>
