@@ -129,7 +129,7 @@
                         </li>
 
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fa fa-id-card"></i>
                                 <p>
                                     Result
@@ -144,7 +144,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item has-treeview menu-open">
-                                    <a href="#" class="nav-link">
+                                    <a href="#" class="nav-link active">
                                         <i class="nav-icon fa fa-id-card"></i>
                                         <p>
                                             Semester Wise Result
@@ -154,52 +154,108 @@
 
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                        <a href="/student/semester/{{1}}/result" class="nav-link">
+                                            @if($year === 'First' && $semester === 'First')
+                                            <a href="/student/semester/{{1}}/result" class="nav-link active">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>1/1</p>
+                                                </a>
+                                            @else
+                                            <a href="/student/semester/{{1}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/1</p>
                                             </a>
+                                        @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'First' && $semester === 'Second')
+                                            <a href="/student/semester/{{2}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>1/2</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{2}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>1/2</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Second' && $semester === 'First')
+                                            <a href="/student/semester/{{3}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>2/1</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{3}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/1</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Second' && $semester === 'Second')
+                                            <a href="/student/semester/{{4}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>2/2</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{4}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>2/2</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Third' && $semester === 'First')
+                                            <a href="/student/semester/{{5}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>3/1</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{5}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/1</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Third' && $semester === 'Second')
+                                            <a href="/student/semester/{{6}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>3/2</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{6}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>3/2</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Fourth' && $semester === 'First')
+                                            <a href="/student/semester/{{7}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>4/1</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{7}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/1</p>
                                             </a>
+                                            @endif
                                         </li>
                                         <li class="nav-item">
+                                            @if($year === 'Fourth' && $semester === 'Second')
+                                            <a href="/student/semester/{{8}}/result" class="nav-link active">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>4/2</p>
+                                            </a>
+                                            @else
                                             <a href="/student/semester/{{8}}/result" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>4/2</p>
                                             </a>
+                                            @endif
                                         </li>
 
                                     </ul>
