@@ -16,7 +16,7 @@ class TeacherController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:teacher');
+        $this->middleware('auth:teacher')->except('my_specific_course_marks_submit');
     }
 
     public function index()
@@ -83,21 +83,55 @@ class TeacherController extends Controller
 
         return view('teacher.my_specific_course_mark')->with($data);
     }
-    public function my_specific_course_marks_submit(Request $request, $id)
+    public function my_specific_course_marks_submit(Request $request, $code)
     {
-        $all_students = Course::find($id)->students()->orderBy('username')->get();
-
-        if (count($all_students))
+        $upload=$request->file('file');
+        if($upload != null)
         {
-            $i = 0;
-            foreach ($all_students as $student)
-            {
-                $indv_std = Course_Student::where('username', $student->username)->first();
-                $indv_std->tt1 = $request->tt1[$i];
-                $indv_std->tt2 = $request->tt2[$i];
-                $indv_std->att = $request->att[$i];
-                $indv_std->final = $request->final[$i];
+            //dd($upload);
+            $filePath=$upload->getRealPath();
 
+            $file=fopen($filePath, 'r');
+
+            $headers= fgetcsv($file);
+
+            $headerlist=[];
+            foreach ($headers as $header) {
+                $header=strtolower($header);
+                array_push($headerlist, $header);
+            }
+            
+            while($columns=fgetcsv($file))
+            {
+                //dd($columns);
+                if($columns[0]=="")
+                {
+                    continue;
+                }
+
+                $data= array_combine($headerlist, $columns);
+                //dd($data);
+
+                $reg_no=$data['reg no'];
+                $tt1=$data['tt1'];
+                $tt2=$data['tt2'];
+                $att=$data['attendence'];
+                $final=$data['final'];
+
+                $indv_std = Course_Student::where('username', $reg_no)
+                                                ->where('code' , $code)->first();
+
+                if($indv_std == null)
+                    continue;
+                if($tt1 != null)
+                    $indv_std->tt1 = $tt1;
+                if($tt2 != null)
+                    $indv_std->tt2 = $tt2;
+                if($att != null)
+                    $indv_std->att = $att;
+                if($final != null)
+                    $indv_std->final = $final;
+                //dd($indv_std);
                 $cal = ($indv_std->tt1 + $indv_std->tt2)/2;
                 $cal += $indv_std->att;
                 $cal += $indv_std->final*.7;
@@ -154,8 +188,89 @@ class TeacherController extends Controller
                 }
 
                 $indv_std->save();
+            }
+        }
+        else
+        {
+            $all_students = Course::find($code)->students()->orderBy('username')->get();
 
-                $i = $i+1;
+            if (count($all_students))
+            {
+                $i = 0;
+                foreach ($all_students as $student)
+                {
+                    $indv_std = Course_Student::where('username', $student->username)
+                                                ->where('code' , $code)->first();
+                    
+                    if($request->tt1[$i] != null)
+                        $indv_std->tt1 = $request->tt1[$i];
+                    if($request->tt2[$i] != null)
+                        $indv_std->tt2 = $request->tt2[$i];
+                    if($request->att[$i] != null)
+                        $indv_std->att = $request->att[$i];
+                    if($request->final[$i] != null)
+                        $indv_std->final = $request->final[$i];
+                    
+
+                    $cal = ($indv_std->tt1 + $indv_std->tt2)/2;
+                    $cal += $indv_std->att;
+                    $cal += $indv_std->final*.7;
+
+                    if ($cal>79)
+                    {
+                        $indv_std->grade = 'A+';
+                        $indv_std->cgpa = '4.00';
+                    }
+                    elseif ($cal>74 && $cal<80)
+                    {
+                        $indv_std->grade = 'A';
+                        $indv_std->cgpa = '3.75';
+                    } 
+                    elseif ($cal>69 && $cal<75) 
+                    {
+                        $indv_std->grade = 'A-';
+                        $indv_std->cgpa = '3.50';
+                    }
+                    elseif ($cal>64 && $cal<70) 
+                    {
+                        $indv_std->grade = 'B+';
+                        $indv_std->cgpa = '3.25';
+                    }
+                    elseif ($cal>59 && $cal<65) 
+                    {
+                        $indv_std->grade = 'B';
+                        $indv_std->cgpa = '3.00';
+                    }
+                    elseif ($cal>54 && $cal<60) 
+                    {
+                        $indv_std->grade = 'B-';
+                        $indv_std->cgpa = '2.75';
+                    }
+                    elseif ($cal>49 && $cal<55) 
+                    {
+                        $indv_std->grade = 'C+';
+                        $indv_std->cgpa = '2.50';
+                    }
+                    elseif ($cal>44 && $cal<50) 
+                    {
+                        $indv_std->grade = 'C';
+                        $indv_std->cgpa = '2.25';
+                    }
+                    elseif ($cal>39 && $cal<45) 
+                    {
+                        $indv_std->grade = 'C-';
+                        $indv_std->cgpa = '2.00';
+                    }
+                    else 
+                    {
+                        $indv_std->grade = 'F';
+                        $indv_std->cgpa = '0.00';
+                    }
+
+                    $indv_std->save();
+
+                    $i = $i+1;
+                }
             }
         }
 

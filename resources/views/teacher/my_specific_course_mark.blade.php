@@ -4,22 +4,46 @@
 <br>
 <div class="container center_div">
     <div class="card-body">
-        <h4>Course {{$code}}</h4>
-        <br>
+        <h3>Course {{$code}}</h3>
+        <br> <br>
         @if (count($all_students) > 0)
+        <form method="POST" action="/teacher/my_courses/{{$code}}/marks" role="form" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group row">
+                <label for="file" >Select a file to upload</label>
+                <div class="col-md-6">
+                    <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}">
+                    @error('file')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row mb-0">
+                <div>
+                    <button type="submit" class="btn btn-primary">Upload File</button>
+                </div>
+            </div>
+        </form>
+
+
+        <br> <br>
+
+
         <form method="POST" action="/teacher/my_courses/{{$code}}/marks">
             @csrf
-            <div class="row">
+            <div class="row">        
                 <div class="col-md-12">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Reg. No</th>
-                                <th scope="col">TT-1(Out of 20)</th>
-                                <th scope="col">TT-2(out of 20)</th>
-                                <th scope="col">Attendance</th>
-                                <th scope="col">Final Exam Mark</th>
+                                <th scope="col">TT-1 (Out of 20)</th>
+                                <th scope="col">TT-2 (Out of 20)</th>
+                                <th scope="col">Attendance (Out of 10)</th>
+                                <th scope="col">Final Exam (Out of 70)</th>
                             </tr>
                         </thead>
                         <tbody>
