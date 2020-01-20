@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Virtual Classroom</title>
+    <title>Result Processing System</title>
     <meta name="description" content="A collection of decorative animated background shapes powered by WebGL and TweenMax." />
     <meta name="keywords" content="webgl, background, shape, web design, web development, tweenmax, gsap, animation" />
     <meta name="author" content="Louis Hoebregts for Codrops" />
