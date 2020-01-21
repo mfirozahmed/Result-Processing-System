@@ -8,8 +8,6 @@
     <br>
     <div class="row">
       <div class="col-md-6">
-
-        <!-- <div class="mt-5"></div> -->
         <br>
         <h5>First Year</h5>
         <table class="table" style="width: 400px;">
@@ -50,13 +48,9 @@
             </tr>
           </thead>
         </table>
-
       </div>
-      <!-- /.col -->
     </div>
     <br>
-    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-    <!-- /.row -->
   </div>
 </div>
 @endsection

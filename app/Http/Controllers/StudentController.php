@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Session;
 use App\Student;
 use App\Course;
 use App\Course_Student;
@@ -52,7 +53,7 @@ class StudentController extends Controller
         
         Session::flash('success', 'Profile has been updated successfully..');
 
-        return view('student.student_profile_update_show')->with('student', $student);
+        return redirect("/student/profile");
     }
 
     public function student_change_password()
@@ -87,7 +88,7 @@ class StudentController extends Controller
                 $user->password = Hash::make($new_password);
                 $user->save();
                 Session::flash('success', 'Password has been changed successfully');
-                return redirect()->intended(route('student_home'));
+                return redirect('/student/change_password');
             }
         }
         Session::flash('error', 'Invalid Current Password');

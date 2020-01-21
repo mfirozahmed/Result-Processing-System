@@ -11,7 +11,7 @@
 @section('content')
 <br>
 <div class="container center_div">
-        @include('inc.message')
+    @include('inc.message')
     <div class="card-body">
         <h4>My Courses</h4>
         <br>
@@ -34,15 +34,12 @@
                             <td><a href="/teacher/my_courses/{{$course->code}}/marks">{{ $course->code }}</a></td>
                             <td><a href="/teacher/my_courses/{{$course->code}}/marks">{{ $course->title }}</a></td>
                             <td>{{ $course->credit }}</td>
-
-                            <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
 
             </div>
-            <!-- /.col -->
         </div>
         @else
             <h5> No course available. </h5>

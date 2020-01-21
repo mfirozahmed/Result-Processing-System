@@ -39,7 +39,6 @@
                     </div>
                     <input type="text" name="phone" value="{{ $teacher->phone }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
-                <!-- /.col -->
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>

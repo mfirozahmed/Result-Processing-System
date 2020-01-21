@@ -42,7 +42,6 @@
                 </div>
 
             </div>
-            <!-- /.col -->
         </div>
         <br>
         <h5><a href="{{route('teacher_profile_update')}}" class="button">Update Profile</a></h5>

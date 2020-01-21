@@ -44,7 +44,6 @@
             <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px;">Address</span>
           </div>
           <textarea type="text" name="address" cols="56" rows="3">{{ $student->address }}</textarea>
-          <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> -->
         </div>
       </div>
       <br>

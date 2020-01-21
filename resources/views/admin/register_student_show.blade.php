@@ -34,15 +34,11 @@
                                         <input type="checkbox" name="students[]" value="{{ $student->username }}">
                                     </div>
                                 </td>
-
-                                <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
-                <!-- /.col -->
             </div>
             <!-- /.row -->
             <br>

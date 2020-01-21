@@ -30,16 +30,12 @@
                                     <div class="checkbox">
                                         <input type="checkbox" name="teachers[]" value="{{ $teacher->username }}">
                                     </div>
-                                </td>
-
-                                <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
 
                 </div>
-                <!-- /.col -->
             </div>
         <!-- /.row -->
         <br>

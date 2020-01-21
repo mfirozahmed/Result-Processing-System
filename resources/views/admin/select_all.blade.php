@@ -17,7 +17,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Registration No</th>
                                 <th scope="col">
-                                    <a href="#">Select All &nbsp
+                                    <a href="/admin/register_student/year/{{$year}}/semester/{{$sem}}/courses/{{$code}}/students">Select All &nbsp
                                     <i class="nav-icon 	fa fa-check-circle"></i>
                                     </a>
                                 </th>
@@ -34,17 +34,12 @@
                                         <input type="checkbox" checked="checked" name="students[]" value="{{ $student->username }}">
                                     </div>
                                 </td>
-
-                                <!-- <input class="form-control input-sm" id="inputsm" type="text"> -->
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
