@@ -259,13 +259,25 @@ class HomeController extends Controller
             $i = 0;
             foreach ($students as $student) {
                 //return $teacher;
-                $registered_student = new Course_Student;
-                $registered_student->code = $code;
-                $registered_student->username = $student;
-                $registered_student->year = date('Y');
-                $registered_student->grade = 'F';
-                $registered_student->save();
-                $i++;
+                $registered_student = Course_Student::where('username', $student)
+                                                    ->where('code', $code)->first();
+                if($registered_student == null)
+                {
+                    $registered_student = new Course_Student;
+                    $registered_student->code = $code;
+                    $registered_student->username = $student;
+                    $registered_student->year = date('Y');
+                    $registered_student->grade = 'F';
+                    $registered_student->save();
+                    $i++;
+                }
+                else
+                {
+                    $registered_student->year = date('Y');
+                    $registered_student->grade = 'F';
+                    $registered_student->save();
+                    $i++;
+                }
             }
         }
 
