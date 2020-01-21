@@ -9,17 +9,32 @@
         @if (count($all_students) > 0)
         <form method="POST" action="/teacher/my_courses/{{$code}}/marks" role="form" enctype="multipart/form-data">
             @csrf
-            <div class="form-group row">
-                <label for="file" >Select a file to upload</label>
+            <!-- <div class="form-group row">
+                <label for="file">Select a file to upload</label>
                 <div class="col-md-6">
                     <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}">
                     @error('file')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div> -->
+
+            <div class="form-group row">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Select a file to upload</span>
+                </div>
+                <div class="col-md-6">
+                    <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}">
+                    @error('file')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
             </div>
+
             <div class="form-group row mb-0">
                 <div>
                     <button type="submit" class="btn btn-primary">Upload File</button>
@@ -33,7 +48,7 @@
 
         <form method="POST" action="/teacher/my_courses/{{$code}}/marks">
             @csrf
-            <div class="row">        
+            <div class="row">
                 <div class="col-md-12">
                     <table class="table">
                         <thead class="thead-dark">
@@ -65,12 +80,12 @@
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>        
+        </form>
         @else
-            <h5> No student available. </h5>
+        <h5> No student available. </h5>
         @endif
         <!-- /.row -->
     </div>
-    
+
 </div><!--  -->
 @endsection
