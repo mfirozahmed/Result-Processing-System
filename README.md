@@ -1,1 +1,1 @@
-# RPMS(Result Processing Management System)
+# RPMS
