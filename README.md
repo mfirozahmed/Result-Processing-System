@@ -4,6 +4,8 @@ Import "rpms.sql" database file.
 
 Go to .env file and change your database name to "rpms" and set your database username and password.
 
+# To run the project
+
 Run command "composer install" and then "php artisan serve".
 
 # If website doesn't run, you should have used this command to clear caches
